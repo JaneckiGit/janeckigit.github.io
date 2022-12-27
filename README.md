@@ -1,2 +1,0 @@
-# Janecki.github.io
-WebsitePortfolio
