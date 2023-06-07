@@ -28,6 +28,15 @@
 
   
   .container1{
+    
+    @media ${device.mobileS} {
+        font-size: 0.9rem;
+    }
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    &:hover    
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px;
@@ -35,6 +44,15 @@
     margin-bottom: 50px;
 }
 .container2{
+  
+  @media ${device.mobileS} {
+        font-size: 0.9rem;
+    }
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    &:hover
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px;
@@ -42,6 +60,15 @@
   margin-bottom: 50px;
 }
   .container3{
+    
+    @media ${device.mobileS} {
+        font-size: 0.9rem;
+    }
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    &:hover
     background-color: #2B2B2B;
     color: #fff;
     text-align: center;
