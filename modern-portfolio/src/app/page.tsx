@@ -26,14 +26,14 @@ export default function Home() {
   const educationRef = useRef<HTMLElement>(null);
   const certificatesRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
-  const sectionRefs = {
+  const sectionRefs = useMemo(() => ({
     home: homeRef,
     about: aboutRef,
     experience: experienceRef,
     education: educationRef,
     certificates: certificatesRef,
     contact: contactRef,
-  };
+  }), []);
 
   useEffect(() => {
     const handleScroll = () => {
