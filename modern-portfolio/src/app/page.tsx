@@ -20,14 +20,20 @@ import ScrollProgress from "./components/ScrollProgress";
 export default function Home() {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState('home');
-  const sectionRefs = useMemo(() => ({
-    home: useRef<HTMLElement>(null),
-    about: useRef<HTMLElement>(null),
-    experience: useRef<HTMLElement>(null),
-    education: useRef<HTMLElement>(null),
-    certificates: useRef<HTMLElement>(null),
-    contact: useRef<HTMLElement>(null),
-  }), []);
+  const homeRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const experienceRef = useRef<HTMLElement>(null);
+  const educationRef = useRef<HTMLElement>(null);
+  const certificatesRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+  const sectionRefs = {
+    home: homeRef,
+    about: aboutRef,
+    experience: experienceRef,
+    education: educationRef,
+    certificates: certificatesRef,
+    contact: contactRef,
+  };
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,7 +1,5 @@
 import React from 'react';
 import Particles from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
-import type { Engine } from '@tsparticles/engine';
 
 export default function AnimatedBackground() {
   return (
