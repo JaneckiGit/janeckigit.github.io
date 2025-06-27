@@ -6,6 +6,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #3b82f6;
+}
+
+html.dark {
+  --accent: #a21caf;
 }
 
 @theme inline {
@@ -45,4 +50,66 @@ body {
 }
 .dark .neumorphism-card {
   box-shadow: 8px 8px 24px #181c20, -8px -8px 24px #23272b;
+}
+
+.nav-text-shadow {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.18), 0 1px 1px rgba(0,0,0,0.12);
+}
+
+.nav-text-contrast {
+  color: #18181b !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 1px rgba(0,0,0,0.12);
+}
+
+.dark .nav-text-contrast {
+  color: #f4f4f5 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.32), 0 1px 1px rgba(0,0,0,0.18);
+}
+
+.underline-animate {
+  position: relative;
+  overflow: visible;
+}
+
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 3s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Accent utility */
+.text-accent {
+  color: var(--accent, #3b82f6);
+}
+.bg-accent {
+  background-color: var(--accent, #3b82f6);
+}
+.border-accent {
+  border-color: var(--accent, #3b82f6);
+}
+
+/* Pop-in animation for cards */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.animate-pop-in {
+  animation: pop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { FaBriefcase, FaCogs } from "react-icons/fa";
 
 const experiences = [
   {
     title: "QA - internship R&D • ABB",
+    icon: <FaCogs className="text-blue-500 dark:text-blue-400 text-2xl" />,
     details: [
       "Performing manual tests for Desktop Application and Microsoft Hololens",
       "Creating Unit Tests",
@@ -14,6 +16,7 @@ const experiences = [
   },
   {
     title: "DevOps - internship R&D • ABB",
+    icon: <FaBriefcase className="text-purple-500 dark:text-purple-400 text-2xl" />,
     details: [
       "Performing manual tests",
       "Creating automatic and regression tests in JavaScript for web applications using Cypress, HTML, and CSS",
@@ -26,26 +29,32 @@ const experiences = [
   },
 ];
 
+// Accent color from CSS variable
+const accent = typeof window !== 'undefined' ? getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#3b82f6' : '#3b82f6';
+
 export default function Experience() {
   return (
-    <section id="experience" className="w-full flex flex-col items-center py-16 px-4">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900 dark:text-white">Experience</h2>
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
-        {experiences.map((exp, idx) => (
+    <section id="experience" className="w-full max-w-4xl mx-auto py-16 px-4">
+      <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Experience</h2>
+      <div className="relative border-l-4" style={{ borderColor: 'var(--accent, #3b82f6)' }}>
+        {experiences.map((exp, i) => (
           <motion.div
             key={exp.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className="flex-1 bg-white/70 dark:bg-gray-900/70 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-800 neumorphism-card hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: i * 0.15 }}
+            className="mb-12 relative"
           >
-            <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">{exp.title}</h3>
-            <ul className="list-disc list-inside text-gray-800 dark:text-gray-200 space-y-2">
-              {exp.details.map((d, i) => (
-                <li key={i}>{d}</li>
-              ))}
-            </ul>
+            <span className="absolute -left-8 top-2 w-6 h-6 rounded-full border-4 border-white dark:border-gray-900 shadow-lg flex items-center justify-center animate-pulse"
+              style={{ background: 'var(--accent, #3b82f6)' }}>
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
+            </span>
+            <div className="bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-6 animate-pop-in">
+              <div className="font-semibold text-lg mb-1">{exp.title}</div>
+              <div className="text-[color:var(--accent,#3b82f6)] font-semibold mb-1">{exp.icon}</div>
+              <div className="text-xs text-gray-500 mb-2">{exp.details.join(', ')}</div>
+            </div>
           </motion.div>
         ))}
       </div>

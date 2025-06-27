@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle, FaEnvelope, FaRegCopy } from "react-icons/fa";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -14,6 +14,8 @@ export default function ContactModal({
 }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
+  const [copied, setCopied] = useState(false);
+  const emailRef = useRef<HTMLSpanElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,6 +28,14 @@ export default function ContactModal({
         setStatus("error");
       }
     }, 1500);
+  };
+
+  const handleCopy = () => {
+    if (emailRef.current) {
+      navigator.clipboard.writeText(emailRef.current.innerText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    }
   };
 
   useEffect(() => {
@@ -104,6 +114,27 @@ export default function ContactModal({
                       Send Message
                     </button>
                   </form>
+                  {/* Email Contact Info */}
+                  <div className="mt-8 flex flex-col items-center gap-2">
+                    <span className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold">
+                      <FaEnvelope />
+                      <a
+                        href="mailto:mateuszjanecki04@gmail.com"
+                        className="underline hover:text-blue-800 dark:hover:text-blue-300"
+                      >
+                        <span ref={emailRef}>mateuszjanecki04@gmail.com</span>
+                      </a>
+                      <button
+                        onClick={handleCopy}
+                        className="ml-2 p-1 rounded hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
+                        aria-label="Copy email"
+                      >
+                        <FaRegCopy className="inline" />
+                      </button>
+                      {copied && <span className="ml-2 text-green-500 text-xs">Copied!</span>}
+                    </span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">Or email me directly</span>
+                  </div>
                 </motion.div>
               )}
 

@@ -2,6 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
+interface SocialLinksProps {
+  size?: '2xl' | '3xl' | '4xl';
+  center?: boolean;
+}
+
 const socialLinks = [
   {
     name: "GitHub",
@@ -17,16 +22,16 @@ const socialLinks = [
   },
   {
     name: "Email",
-    url: "mailto:your.email@example.com", // Replace with your actual email
+    url: "mailto:mateuszjanecki04@gmail.com",
     icon: <FaEnvelope />,
-    color: "hover:text-red-500 dark:hover:text-red-400",
+    color: "hover:text-red-500 dark:hover:text-red-400 animate-pulse",
   },
 ];
 
-export default function SocialLinks() {
+export default function SocialLinks({ size = '2xl', center = false }: SocialLinksProps) {
   return (
     <motion.div
-      className="flex gap-6"
+      className={`flex gap-6 ${center ? 'justify-center w-full' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
@@ -37,7 +42,7 @@ export default function SocialLinks() {
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-2xl text-gray-500 transition-colors ${social.color}`}
+          className={`text-${size} text-gray-500 transition-colors ${social.color}`}
           aria-label={social.name}
         >
           {social.icon}
