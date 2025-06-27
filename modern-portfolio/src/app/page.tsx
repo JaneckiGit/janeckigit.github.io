@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -20,14 +20,14 @@ import ScrollProgress from "./components/ScrollProgress";
 export default function Home() {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState('home');
-  const sectionRefs = {
+  const sectionRefs = useMemo(() => ({
     home: useRef<HTMLElement>(null),
     about: useRef<HTMLElement>(null),
     experience: useRef<HTMLElement>(null),
     education: useRef<HTMLElement>(null),
     certificates: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
-  };
+  }), []);
 
   useEffect(() => {
     const handleScroll = () => {
