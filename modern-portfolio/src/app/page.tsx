@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -26,14 +26,14 @@ export default function Home() {
   const educationRef = useRef<HTMLElement>(null);
   const certificatesRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
-  const sectionRefs = useMemo(() => ({
+  const sectionRefs = {
     home: homeRef,
     about: aboutRef,
     experience: experienceRef,
     education: educationRef,
     certificates: certificatesRef,
     contact: contactRef,
-  }), []);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +50,7 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sectionRefs]);
+  }, []);
 
   return (
     <>
