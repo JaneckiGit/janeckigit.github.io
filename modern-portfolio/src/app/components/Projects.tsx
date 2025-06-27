@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -47,7 +48,7 @@ export default function Projects() {
             role="button"
             aria-label={`Show details for ${project.title}`}
           >
-            <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-lg mb-4 shadow" />
+            <Image src={project.image} alt={project.title} width={400} height={160} className="w-full h-40 object-cover rounded-lg mb-4 shadow" />
             <h3 className="text-lg font-semibold text-center mb-2">{project.title}</h3>
             <p className="text-sm text-gray-500 mb-2 text-center">{project.description}</p>
             <div className="flex flex-wrap gap-2 justify-center">
@@ -85,7 +86,7 @@ export default function Projects() {
               >
                 ×
               </button>
-              <img src={selected.image} alt={selected.title} className="w-full h-48 object-cover rounded-lg mb-4 shadow" />
+              <Image src={selected.image} alt={selected.title} width={600} height={192} className="w-full h-48 object-cover rounded-lg mb-4 shadow" />
               <h3 className="text-2xl font-bold mb-2 text-center">{selected.title}</h3>
               <p className="text-center text-gray-500 mb-4">{selected.description}</p>
               <div className="flex flex-wrap gap-2 justify-center mb-4">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -41,7 +42,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6 }}
             className="absolute w-full flex flex-col items-center bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-8"
           >
-            <img src={testimonials[index].avatar} alt={testimonials[index].name} className="w-16 h-16 rounded-full mb-4 border-4 border-gradient-to-r from-blue-500 to-purple-500 shadow" />
+            <Image src={testimonials[index].avatar} alt={testimonials[index].name} width={64} height={64} className="w-16 h-16 rounded-full mb-4 border-4 border-gradient-to-r from-blue-500 to-purple-500 shadow" />
             <blockquote className="text-lg italic text-center mb-4 text-gray-700 dark:text-gray-200">“{testimonials[index].quote}”</blockquote>
             <div className="text-center">
               <span className="font-semibold text-blue-600 dark:text-blue-400">{testimonials[index].name}</span>

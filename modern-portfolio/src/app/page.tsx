@@ -15,6 +15,7 @@ import Projects from "./components/Projects";
 import Testimonials from "./components/Testimonials";
 import FunFacts from "./components/FunFacts";
 import { motion } from "framer-motion";
+import ScrollProgress from "./components/ScrollProgress";
 
 export default function Home() {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
@@ -43,12 +44,13 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sectionRefs]);
 
   return (
     <>
+      <ScrollProgress />
       <AnimatedBackground />
-      <Navbar onContactClick={() => setContactModalOpen(true)} currentSection={currentSection} />
+      <Navbar currentSection={currentSection} />
       <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-center px-4">
         <motion.section ref={sectionRefs.home} id="home" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7 }} className="w-full">
           <Hero onContactClick={() => setContactModalOpen(true)} />

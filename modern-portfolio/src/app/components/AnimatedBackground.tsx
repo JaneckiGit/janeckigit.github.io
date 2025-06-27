@@ -10,7 +10,6 @@ export default function AnimatedBackground() {
   return (
     <Particles
       id="tsparticles-bg"
-      init={particlesInit}
       options={{
         fullScreen: { enable: true, zIndex: 0 },
         background: { color: { value: 'transparent' } },
