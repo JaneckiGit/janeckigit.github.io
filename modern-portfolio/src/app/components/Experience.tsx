@@ -29,9 +29,6 @@ const experiences = [
   },
 ];
 
-// Accent color from CSS variable
-const accent = typeof window !== 'undefined' ? getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#3b82f6' : '#3b82f6';
-
 export default function Experience() {
   return (
     <section id="experience" className="w-full max-w-4xl mx-auto py-16 px-4">

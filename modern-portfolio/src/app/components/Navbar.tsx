@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-export default function Navbar({ onContactClick, currentSection }: { onContactClick: () => void, currentSection?: string }) {
+export default function Navbar({ currentSection }: { currentSection?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 

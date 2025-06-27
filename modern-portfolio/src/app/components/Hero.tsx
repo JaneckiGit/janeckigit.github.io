@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import { TypeAnimation } from 'react-type-animation';
-import { useInView, Variants } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Hero({ onContactClick }: { onContactClick: () => void }) {

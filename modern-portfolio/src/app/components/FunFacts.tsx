@@ -14,7 +14,6 @@ function Counter({ value }: { value: number }) {
   const [count, setCount] = React.useState(0);
   React.useEffect(() => {
     if (!inView) return;
-    let start = 0;
     let startTime: number | null = null;
     const duration = 1500;
     function animateCounter(timestamp: number) {

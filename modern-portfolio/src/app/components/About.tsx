@@ -27,7 +27,7 @@ export default function About() {
             <span className="font-semibold">Interests:</span> Cryptocurrency, digital marketing, self-development, exploring the world, and music.
           </div>
           <div className="mt-2 text-gray-600 dark:text-gray-400">
-            <span className="font-semibold">Quick summary:</span> I am curious, ambitious, and open-minded. I love learning about new technologies, understanding how things work, and sharing knowledge with others. I believe in continuous self-improvement and enjoy exploring both the digital and real world. Whether it's coding, traveling, or listening to music, I always bring energy and a positive attitude.
+            <span className="font-semibold">Quick summary:</span> I am curious, ambitious, and open-minded. I love learning about new technologies, understanding how things work, and sharing knowledge with others. I believe in continuous self-improvement and enjoy exploring both the digital and real world. Whether it&apos;s coding, traveling, or listening to music, I always bring energy and a positive attitude.
           </div>
           <div className="flex flex-wrap gap-4 mt-4">
             <a href="mailto:mateuszjanecki04@gmail.com" className="flex items-center gap-2 text-blue-600 hover:underline"><FaEnvelope /> mateuszjanecki04@gmail.com</a>

@@ -1,7 +1,6 @@
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaUniversity, FaGraduationCap } from "react-icons/fa";
-import Image from "next/image";
 
 const educationData = [
   {
@@ -23,22 +22,6 @@ const educationData = [
     color: "from-purple-200 to-purple-400 dark:from-purple-900 dark:to-purple-700",
   },
 ];
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
-// Accent color from CSS variable
-const accent = typeof window !== 'undefined' ? getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#3b82f6' : '#3b82f6';
 
 export default function Education() {
   return (
