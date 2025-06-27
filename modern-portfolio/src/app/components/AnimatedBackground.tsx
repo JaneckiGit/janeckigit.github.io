@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import Particles from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { Engine } from '@tsparticles/engine';
-import type { ISourceOptions } from '@tsparticles/engine';
 
 export default function AnimatedBackground() {
   const particlesInit = useCallback(async (engine: Engine) => {
