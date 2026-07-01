@@ -19,15 +19,17 @@ export default function ContactModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      setStatus("error");
+      return;
+    }
     setStatus("sending");
-    // Mock API call
+    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
     setTimeout(() => {
-      if (form.name && form.email && form.message) {
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
-    }, 1500);
+      window.location.href = `mailto:mateuszjanecki04@gmail.com?subject=${subject}&body=${body}`;
+      setStatus("success");
+    }, 700);
   };
 
   const handleCopy = () => {
@@ -52,41 +54,43 @@ export default function ContactModal({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/30 p-4 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 w-full max-w-md relative"
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ type: "spring", stiffness: 220, damping: 22 }}
+            className="glass relative w-full max-w-md rounded-3xl p-8"
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-gray-500 transition-transform hover:scale-110"
+              className="absolute right-5 top-5 text-slate-400 transition-transform hover:scale-110 hover:text-slate-700"
               aria-label="Close"
             >
               <FaTimesCircle className="h-6 w-6" />
             </button>
 
             <AnimatePresence mode="wait">
-              {status === "idle" && (
-                <motion.div
-                  key="form"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <h2 className="mb-4 text-center text-2xl font-bold">Contact Me</h2>
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {(status === "idle" || status === "error") && (
+                <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <h2 className="mb-1 text-center text-2xl font-semibold text-slate-900">
+                    Get in touch
+                  </h2>
+                  <p className="mb-5 text-center text-sm text-slate-500">
+                    I&apos;ll get back to you as soon as I can.
+                  </p>
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <input
                       type="text"
                       placeholder="Name"
                       required
-                      className="rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
+                      className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
@@ -94,46 +98,42 @@ export default function ContactModal({
                       type="email"
                       placeholder="Email"
                       required
-                      className="rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
+                      className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                     />
                     <textarea
                       placeholder="Message"
                       required
-                      className="min-h-[120px] rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
+                      className="min-h-[110px] rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.message}
-                      onChange={(e) =>
-                        setForm({ ...form, message: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
                     />
+                    {status === "error" && (
+                      <span className="text-xs text-red-500">Please fill in all fields.</span>
+                    )}
                     <button
                       type="submit"
-                      className="rounded-lg bg-blue-600 p-3 font-semibold text-white transition-transform hover:scale-105"
+                      className="rounded-full accent-gradient-bg py-3 text-sm font-semibold text-white shadow-md transition-transform hover:scale-[1.02]"
                     >
-                      Send Message
+                      Send message
                     </button>
                   </form>
-                  {/* Email Contact Info */}
-                  <div className="mt-8 flex flex-col items-center gap-2">
-                    <span className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold">
-                      <FaEnvelope />
-                      <a
-                        href="mailto:mateuszjanecki04@gmail.com"
-                        className="underline hover:text-blue-800 dark:hover:text-blue-300"
-                      >
+                  <div className="mt-6 flex flex-col items-center gap-1">
+                    <span className="flex items-center gap-2 text-sm font-medium text-slate-600">
+                      <FaEnvelope className="text-accent" />
+                      <a href="mailto:mateuszjanecki04@gmail.com" className="hover:underline">
                         <span ref={emailRef}>mateuszjanecki04@gmail.com</span>
                       </a>
                       <button
                         onClick={handleCopy}
-                        className="ml-2 p-1 rounded hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
+                        className="rounded p-1 transition-colors hover:bg-slate-900/5"
                         aria-label="Copy email"
                       >
                         <FaRegCopy className="inline" />
                       </button>
-                      {copied && <span className="ml-2 text-green-500 text-xs">Copied!</span>}
+                      {copied && <span className="text-xs text-emerald-500">Copied!</span>}
                     </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">Or email me directly</span>
                   </div>
                 </motion.div>
               )}
@@ -141,37 +141,25 @@ export default function ContactModal({
               {status === "sending" && (
                 <motion.div
                   key="sending"
-                  className="flex flex-col items-center justify-center gap-4 py-10"
+                  className="flex flex-col items-center justify-center gap-4 py-12"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                 >
-                  <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-                  <p>Sending...</p>
+                  <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-400 border-t-transparent" />
+                  <p className="text-slate-600">Opening your mail app…</p>
                 </motion.div>
               )}
 
               {status === "success" && (
                 <motion.div
                   key="success"
-                  className="flex flex-col items-center justify-center gap-4 py-10"
+                  className="flex flex-col items-center justify-center gap-4 py-12"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                 >
-                  <FaCheckCircle className="h-12 w-12 text-green-500" />
-                  <p>Message sent successfully!</p>
-                </motion.div>
-              )}
-
-              {status === "error" && (
-                <motion.div
-                  key="error"
-                  className="flex flex-col items-center justify-center gap-4 py-10"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                >
-                  <FaTimesCircle className="h-12 w-12 text-red-500" />
-                  <p>Please fill all fields.</p>
+                  <FaCheckCircle className="h-12 w-12 text-emerald-500" />
+                  <p className="text-slate-600">Ready to send!</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -180,4 +168,4 @@ export default function ContactModal({
       )}
     </AnimatePresence>
   );
-} 
+}

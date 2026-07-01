@@ -3,8 +3,15 @@ import React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mateusz Janecki | Portfolio",
-  description: "Modern portfolio for Mateusz Janecki, showcasing skills in software development, DevOps, and more.",
+  title: "Mateusz Janecki — Scrum Master & IT",
+  description:
+    "Portfolio of Mateusz Janecki — Scrum Master with a technical background in software development, QA automation, and DevOps. Cracow, Poland.",
+  openGraph: {
+    title: "Mateusz Janecki — Scrum Master & IT",
+    description:
+      "Scrum Master with a technical background in software development, QA automation, and DevOps.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -13,11 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="!scroll-smooth">
       <head />
-      <body className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased transition-colors duration-300">
-        {children}
-      </body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

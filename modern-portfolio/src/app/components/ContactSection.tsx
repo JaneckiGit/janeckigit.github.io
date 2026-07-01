@@ -1,109 +1,144 @@
-import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+"use client";
+import {
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaPhone,
+  FaArrowRight,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import SectionHeading from "./SectionHeading";
+
+const channels = [
+  {
+    icon: <FaEnvelope />,
+    label: "Email",
+    value: "mateuszjanecki04@gmail.com",
+    href: "mailto:mateuszjanecki04@gmail.com",
+  },
+  {
+    icon: <FaPhone />,
+    label: "Phone",
+    value: "+48 537 789 787",
+    href: "tel:+48537789787",
+  },
+  {
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
+    value: "in/mateusz-j",
+    href: "https://www.linkedin.com/in/mateusz-j-621b1a196/",
+  },
+  {
+    icon: <FaGithub />,
+    label: "GitHub",
+    value: "JaneckiGit",
+    href: "https://github.com/JaneckiGit",
+  },
+];
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('sending');
-    try {
-      // EmailJS example (replace with your EmailJS service and template IDs)
-      const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service_id: 'service_xxx', // <-- replace with your EmailJS service ID
-          template_id: 'template_xxx', // <-- replace with your EmailJS template ID
-          user_id: 'user_xxx', // <-- replace with your EmailJS user ID (public key)
-          template_params: {
-            from_name: form.name,
-            from_email: form.email,
-            message: form.message,
-            to_email: 'mateuszjanecki04@gmail.com',
-          },
-        }),
-      });
-      if (res.ok) {
-        setStatus('success');
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-    setTimeout(() => setStatus('idle'), 3000);
+    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
+    const body = encodeURIComponent(
+      `${form.message}\n\n— ${form.name} (${form.email})`
+    );
+    window.location.href = `mailto:mateuszjanecki04@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
-    <section id="contact" className="w-full max-w-3xl mx-auto py-16 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.7 }}
-        className="rounded-2xl shadow-xl bg-white/90 dark:bg-gray-900/90 border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center"
-      >
-        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Contact Me</h2>
-        <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-xl">
-          Interested in working together, have a question, or just want to connect? Feel free to reach out!
-        </p>
-        <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col gap-4 mb-8">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
-            value={form.name}
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
-            value={form.email}
-            onChange={handleChange}
-          />
+    <section id="contact" className="mx-auto w-full max-w-5xl px-4 py-20">
+      <SectionHeading eyebrow="Contact" title="Let's build something together" />
+
+      <div className="grid gap-6 md:grid-cols-[1fr_1.2fr]">
+        {/* Channels */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-3"
+        >
+          <p className="mb-2 text-slate-600">
+            Interested in collaborating, hiring, or just want to connect? I&apos;m
+            always happy to talk.
+          </p>
+          {channels.map((c) => (
+            <a
+              key={c.label}
+              href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="glass glass-sheen group flex items-center gap-4 rounded-2xl p-4 transition-transform hover:scale-[1.02]"
+            >
+              <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl accent-gradient-bg text-white shadow-md">
+                {c.icon}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-medium uppercase tracking-wider text-slate-400">
+                  {c.label}
+                </span>
+                <span className="block truncate text-sm font-semibold text-slate-800">
+                  {c.value}
+                </span>
+              </span>
+            </a>
+          ))}
+        </motion.div>
+
+        {/* Form */}
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="glass glass-sheen flex flex-col gap-4 rounded-3xl p-8"
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+              value={form.name}
+              onChange={handleChange}
+              className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              value={form.email}
+              onChange={handleChange}
+              className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
+            />
+          </div>
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="Your message"
             required
-            className="min-h-[120px] rounded-lg border bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800"
             value={form.message}
             onChange={handleChange}
+            className="min-h-[140px] rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
           />
           <button
             type="submit"
-            disabled={status === 'sending'}
-            className="rounded-lg bg-blue-600 p-3 font-semibold text-white transition-transform hover:scale-105 disabled:opacity-60"
+            className="group inline-flex items-center justify-center gap-2 rounded-full accent-gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-[1.02]"
           >
-            {status === 'sending' ? 'Sending...' : 'Send Message'}
+            Send message
+            <FaArrowRight className="transition-transform group-hover:translate-x-0.5" />
           </button>
-          {status === 'success' && <div className="text-green-600 font-semibold">Message sent successfully!</div>}
-          {status === 'error' && <div className="text-red-600 font-semibold">Failed to send. Please try again.</div>}
-        </form>
-        <div className="flex flex-col gap-4 w-full items-center">
-          <a href="mailto:mateuszjanecki04@gmail.com" className="flex items-center gap-3 text-lg font-semibold text-blue-600 hover:underline">
-            <FaEnvelope className="text-2xl" /> mateuszjanecki04@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/mateusz-j-621b1a196" target="_blank" className="flex items-center gap-3 text-lg font-semibold text-blue-500 hover:underline">
-            <FaLinkedin className="text-2xl" /> LinkedIn
-          </a>
-          <a href="https://github.com/janeckigit" target="_blank" className="flex items-center gap-3 text-lg font-semibold text-gray-800 dark:text-gray-200 hover:underline">
-            <FaGithub className="text-2xl" /> GitHub
-          </a>
-        </div>
-      </motion.div>
+        </motion.form>
+      </div>
     </section>
   );
-} 
+}

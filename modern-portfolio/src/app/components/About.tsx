@@ -1,63 +1,160 @@
-import { FaUserTie, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaLanguage, FaTools } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+"use client";
+import {
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaPhone,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
+
+const skillGroups = [
+  {
+    label: "Agile & Delivery",
+    items: ["Scrum", "Kanban", "PSM I", "Team Coordination", "Mentoring"],
+  },
+  {
+    label: "QA & Test Automation",
+    items: ["C# / .NET", "Selenium", "Appium", "Cypress", "Unit & Regression Tests"],
+  },
+  {
+    label: "DevOps & Cloud",
+    items: ["Azure DevOps", "CI/CD Pipelines", "Virtual Machines", "Google Cloud", "Postman"],
+  },
+  {
+    label: "Development",
+    items: ["Java", "JavaScript", "HTML & CSS", "SQL", "Git"],
+  },
+  {
+    label: "Marketing",
+    items: ["Meta Ads", "Social Media", "Email Campaigns", "Analytics"],
+  },
+];
+
+const contacts = [
+  { icon: <FaEnvelope />, label: "mateuszjanecki04@gmail.com", href: "mailto:mateuszjanecki04@gmail.com" },
+  { icon: <FaPhone />, label: "+48 537 789 787", href: "tel:+48537789787" },
+  { icon: <FaLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/mateusz-j-621b1a196/" },
+  { icon: <FaGithub />, label: "GitHub", href: "https://github.com/JaneckiGit" },
+];
 
 export default function About() {
   return (
-    <section id="about" className="w-full max-w-4xl mx-auto py-16 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.7 }}
-        className="rounded-2xl shadow-xl bg-white/90 dark:bg-gray-900/90 border border-gray-100 dark:border-gray-800 p-8 flex flex-col md:flex-row gap-8 items-center"
-      >
-        <div className="flex-1 flex flex-col gap-4">
-          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">About Me</h2>
-          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-            <FaUserTie className="text-xl text-blue-500 dark:text-blue-400" />
-            <span className="font-semibold text-lg text-gray-900 dark:text-gray-100">Mateusz Janecki</span>
-          </div>
-          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-            <FaMapMarkerAlt className="text-md" /> Kraków, Poland
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">
-            I am a passionate technologist and lifelong learner, always seeking new challenges and opportunities to grow. With a strong background in IT, DevOps, and software development, I thrive in dynamic environments where I can combine my technical skills with creativity and communication. I enjoy working on innovative projects, collaborating with diverse teams, and constantly improving myself.
+    <section id="about" className="mx-auto w-full max-w-5xl px-4 py-20">
+      <SectionHeading
+        eyebrow="About"
+        title="A technical mind with a delivery mindset"
+      />
+
+      <div className="grid gap-6 md:grid-cols-[1.4fr_1fr]">
+        {/* Bio */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="glass glass-sheen rounded-3xl p-8"
+        >
+          <p className="text-lg leading-relaxed text-slate-700">
+            I&apos;m a Computer Science student at Cracow University of
+            Technology with hands-on experience in software development,
+            automated software testing, and DevOps.
           </p>
-          <div className="mt-2 text-gray-600 dark:text-gray-400">
-            <span className="font-semibold">Interests:</span> Cryptocurrency, digital marketing, self-development, exploring the world, and music.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            I combine technical development with project management
+            responsibilities — task creation, clarification, and team
+            coordination — backed by a solid technical background and very good
+            communication within project teams. I&apos;m passionate about online
+            marketing, new technologies, and continuous self-development.
+          </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {contacts.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm font-medium text-slate-700 transition-transform hover:scale-[1.02]"
+              >
+                <span className="text-accent">{c.icon}</span>
+                <span className="truncate">{c.label}</span>
+              </a>
+            ))}
           </div>
-          <div className="mt-2 text-gray-600 dark:text-gray-400">
-            <span className="font-semibold">Quick summary:</span> I am curious, ambitious, and open-minded. I love learning about new technologies, understanding how things work, and sharing knowledge with others. I believe in continuous self-improvement and enjoy exploring both the digital and real world. Whether it&apos;s coding, traveling, or listening to music, I always bring energy and a positive attitude.
-          </div>
-          <div className="flex flex-wrap gap-4 mt-4">
-            <a href="mailto:mateuszjanecki04@gmail.com" className="flex items-center gap-2 text-blue-600 hover:underline"><FaEnvelope /> mateuszjanecki04@gmail.com</a>
-            <a href="https://www.linkedin.com/in/mateusz-j-621b1a196" target="_blank" className="flex items-center gap-2 text-blue-500 hover:underline"><FaLinkedin /> LinkedIn</a>
-            <a href="https://github.com/janeckigit" target="_blank" className="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:underline"><FaGithub /> GitHub</a>
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col gap-6 mt-8 md:mt-0">
+        </motion.div>
+
+        {/* Languages + quick facts */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="glass glass-sheen flex flex-col gap-6 rounded-3xl p-8"
+        >
           <div>
-            <h3 className="text-xl font-semibold flex items-center gap-2 mb-2"><FaLanguage className="text-blue-400" /> Languages</h3>
-            <ul className="ml-2 text-gray-700 dark:text-gray-300">
-              <li><span className="font-bold">Polish</span> - native</li>
-              <li><span className="font-bold">English</span> - B2</li>
-            </ul>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
+              Languages
+            </h3>
+            <div className="space-y-3">
+              {[
+                { name: "Polish", level: "Native", pct: 100 },
+                { name: "English", level: "B2", pct: 75 },
+              ].map((l) => (
+                <div key={l.name}>
+                  <div className="mb-1 flex justify-between text-sm">
+                    <span className="font-medium text-slate-700">{l.name}</span>
+                    <span className="text-slate-400">{l.level}</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-slate-200/70">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${l.pct}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                      className="h-full rounded-full accent-gradient-bg"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold flex items-center gap-2 mb-2"><FaTools className="text-purple-400" /> Key Skills</h3>
-            <ul className="ml-2 text-gray-700 dark:text-gray-300 list-disc list-inside">
-              <li>DevOps & Cloud: Microsoft Azure, CI/CD, automation, pipelines, virtual machines</li>
-              <li>Programming: Python, Bash, JavaScript, HTML, CSS</li>
-              <li>Web Development: Modern frameworks, responsive design, UI/UX</li>
-              <li>Version Control: Git, GitHub</li>
-              <li>Agile & Teamwork: Scrum, project management, communication</li>
-              <li>Digital Marketing: SEO, analytics, content creation</li>
-              <li>Cryptocurrency: Blockchain basics, trading, security</li>
-              <li>Self-development: Fast learner, growth mindset, adaptability</li>
-            </ul>
+
+          <div className="mt-auto flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm text-slate-600">
+            <FaMapMarkerAlt className="text-accent" />
+            Based in Cracow, Poland — open to hybrid & remote
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Skills */}
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {skillGroups.map((group, i) => (
+          <motion.div
+            key={group.label}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.06 }}
+            className="glass-soft rounded-3xl p-6"
+          >
+            <h4 className="mb-3 text-sm font-semibold text-slate-800">
+              {group.label}
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
-} 
+}

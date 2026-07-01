@@ -4,35 +4,27 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Certificates from "./components/Certificates";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ContactModal from "./components/ContactModal";
 import BackToTop from "./components/BackToTop";
-import AnimatedBackground from "./components/AnimatedBackground";
-import ContactSection from "./components/ContactSection";
-import Projects from "./components/Projects";
-import Testimonials from "./components/Testimonials";
-import FunFacts from "./components/FunFacts";
-import { motion } from "framer-motion";
+import LiquidBackground from "./components/LiquidBackground";
 import ScrollProgress from "./components/ScrollProgress";
 
 export default function Home() {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
-  const [currentSection, setCurrentSection] = useState('home');
-  const homeRef = useRef<HTMLElement>(null);
-  const aboutRef = useRef<HTMLElement>(null);
-  const experienceRef = useRef<HTMLElement>(null);
-  const educationRef = useRef<HTMLElement>(null);
-  const certificatesRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
+  const [currentSection, setCurrentSection] = useState("home");
+
   const sectionRefs = {
-    home: homeRef,
-    about: aboutRef,
-    experience: experienceRef,
-    education: educationRef,
-    certificates: certificatesRef,
-    contact: contactRef,
+    home: useRef<HTMLElement>(null),
+    about: useRef<HTMLElement>(null),
+    experience: useRef<HTMLElement>(null),
+    projects: useRef<HTMLElement>(null),
+    certificates: useRef<HTMLElement>(null),
+    contact: useRef<HTMLElement>(null),
   };
 
   useEffect(() => {
@@ -40,52 +32,50 @@ export default function Home() {
       const offsets = Object.entries(sectionRefs).map(([key, ref]) => {
         if (ref.current) {
           const rect = ref.current.getBoundingClientRect();
-          return { key, top: Math.abs(rect.top) };
+          return { key, top: Math.abs(rect.top - 120) };
         }
         return { key, top: Infinity };
       });
       const visible = offsets.reduce((a, b) => (a.top < b.top ? a : b));
       setCurrentSection(visible.key);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <ScrollProgress />
-      <AnimatedBackground />
+      <LiquidBackground />
       <Navbar currentSection={currentSection} />
-      <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-center px-4">
-        <motion.section ref={sectionRefs.home} id="home" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7 }} className="w-full">
-          <Hero onContactClick={() => setContactModalOpen(true)} />
-        </motion.section>
-        <motion.section ref={sectionRefs.about} id="about" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1 }} className="w-full">
+
+      <main className="relative z-10">
+        <div className="mx-auto max-w-5xl px-4">
+          <section ref={sectionRefs.home}>
+            <Hero onContactClick={() => setContactModalOpen(true)} />
+          </section>
+        </div>
+
+        <section ref={sectionRefs.about}>
           <About />
-        </motion.section>
-        <motion.section ref={sectionRefs.experience} id="experience" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.2 }} className="w-full">
+        </section>
+        <section ref={sectionRefs.experience}>
           <Experience />
-        </motion.section>
-        <motion.section ref={sectionRefs.education} id="education" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.3 }} className="w-full">
-          <Education />
-        </motion.section>
-        <motion.section ref={sectionRefs.certificates} id="certificates" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.4 }} className="w-full">
-          <Certificates />
-        </motion.section>
-        <motion.section id="projects" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.5 }} className="w-full">
+        </section>
+        <section ref={sectionRefs.projects}>
           <Projects />
-        </motion.section>
-        <motion.section id="testimonials" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.6 }} className="w-full">
-          <Testimonials />
-        </motion.section>
-        <motion.section id="funfacts" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.7 }} className="w-full">
-          <FunFacts />
-        </motion.section>
+        </section>
+        <Education />
+        <section ref={sectionRefs.certificates}>
+          <Certificates />
+        </section>
+        <section ref={sectionRefs.contact}>
+          <ContactSection />
+        </section>
       </main>
-      <motion.section ref={sectionRefs.contact} id="contact" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.5 }} className="w-full">
-        <ContactSection />
-      </motion.section>
+
       <Footer />
       <BackToTop />
       <ContactModal

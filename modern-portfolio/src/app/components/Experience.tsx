@@ -1,60 +1,145 @@
+"use client";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaCogs } from "react-icons/fa";
+import SectionHeading from "./SectionHeading";
 
-const experiences = [
+type Role = {
+  title: string;
+  company: string;
+  type: string;
+  period: string;
+  location: string;
+  bullets: string[];
+  stack?: string[];
+};
+
+const experiences: Role[] = [
   {
-    title: "QA - internship R&D • ABB",
-    icon: <FaCogs className="text-blue-500 dark:text-blue-400 text-2xl" />,
-    details: [
-      "Performing manual tests for Desktop Application and Microsoft Hololens",
-      "Creating Unit Tests",
-      "Creating automatic and regression tests in C# for desktop application using Appium and Selenium",
-      "Participating in SCRUM meetings",
-      "Direct communication with QA, Frontend, Backend, IT, and DevOps teams",
-      "Stack: C# | Framework: .NET | Tools: Git, Azure DevOps, Appium, Selenium | Agile: Scrum",
+    title: "Ambassador — iStudies",
+    company: "iSpot · Apple Premium Partner",
+    type: "Freelance",
+    period: "Sep 2025 — Present",
+    location: "Cracow, Poland",
+    bullets: [
+      "Representing iSpot's Apple education program among students and universities",
+      "Running on-campus activations and building the student community",
+      "Advising peers on Apple hardware, software, and education offers",
     ],
+    stack: ["Brand Ambassador", "Community", "Communication"],
   },
   {
-    title: "DevOps - internship R&D • ABB",
-    icon: <FaBriefcase className="text-purple-500 dark:text-purple-400 text-2xl" />,
-    details: [
-      "Performing manual tests",
-      "Creating automatic and regression tests in JavaScript for web applications using Cypress, HTML, and CSS",
-      "Creating and maintaining virtual machines",
-      "Creating and maintaining pipelines using Azure DevOps",
-      "Participating in SCRUM meetings",
-      "Direct communication with QA, Frontend, Backend, IT, and DevOps teams",
-      "Stack: JavaScript, HTML, CSS | Framework: Cypress | Tools: Git, Azure DevOps, Postman | Agile: Scrum",
+    title: "Marketing Coordinator",
+    company: "Kościuszkon",
+    type: "Freelance",
+    period: "Dec 2024 — Jun 2025",
+    location: "Cracow, Poland",
+    bullets: [
+      "Managing and maintaining social media channels",
+      "Creating and optimizing paid advertising campaigns on Facebook and Instagram",
+      "Coordinating promotional activities across different platforms",
+      "Developing and executing email marketing campaigns",
     ],
+    stack: ["Meta Ads", "Email Marketing", "Social Media", "Analytics"],
+  },
+  {
+    title: "QA — Internship R&D",
+    company: "ABB",
+    type: "Apprenticeship",
+    period: "Oct 2022 — Nov 2022",
+    location: "Cracow, Poland",
+    bullets: [
+      "Manual testing of a desktop application and Microsoft HoloLens",
+      "Writing unit tests and automated / regression tests in C#",
+      "Test automation with Appium and Selenium",
+      "Participating in SCRUM and cross-team communication (QA, Frontend, Backend, IT, DevOps)",
+    ],
+    stack: ["C#", ".NET", "Appium", "Selenium", "Azure DevOps", "Git", "Scrum"],
+  },
+  {
+    title: "DevOps — Internship R&D",
+    company: "ABB",
+    type: "Apprenticeship",
+    period: "Apr 2022 — May 2022",
+    location: "Cracow, Poland",
+    bullets: [
+      "Automated and regression tests in JavaScript for web apps using Cypress (HTML/CSS)",
+      "Creating and maintaining virtual machines",
+      "Building and maintaining pipelines in Azure DevOps",
+      "Participating in SCRUM and cross-team communication",
+    ],
+    stack: ["JavaScript", "Cypress", "Azure DevOps", "Postman", "Git", "Scrum"],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="w-full max-w-4xl mx-auto py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Experience</h2>
-      <div className="relative border-l-4" style={{ borderColor: 'var(--accent, #3b82f6)' }}>
-        {experiences.map((exp, i) => (
-          <motion.div
-            key={exp.title}
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="mb-12 relative"
-          >
-            <span className="absolute -left-8 top-2 w-6 h-6 rounded-full border-4 border-white dark:border-gray-900 shadow-lg flex items-center justify-center animate-pulse"
-              style={{ background: 'var(--accent, #3b82f6)' }}>
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
-            </span>
-            <div className="bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-6 animate-pop-in">
-              <div className="font-semibold text-lg mb-1">{exp.title}</div>
-              <div className="text-[color:var(--accent,#3b82f6)] font-semibold mb-1">{exp.icon}</div>
-              <div className="text-xs text-gray-500 mb-2">{exp.details.join(', ')}</div>
-            </div>
-          </motion.div>
-        ))}
+    <section id="experience" className="mx-auto w-full max-w-5xl px-4 py-20">
+      <SectionHeading eyebrow="Experience" title="Where I've made an impact" />
+
+      <div className="relative pl-6 sm:pl-8">
+        {/* timeline line */}
+        <div className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-indigo-300 via-sky-300 to-transparent sm:left-3" />
+
+        <div className="space-y-6">
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={exp.title + exp.period}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55, delay: i * 0.08 }}
+              className="relative"
+            >
+              {/* node */}
+              <span className="absolute -left-[1.15rem] top-6 h-3.5 w-3.5 rounded-full accent-gradient-bg ring-4 ring-white sm:-left-[1.4rem]" />
+
+              <div className="glass glass-sheen rounded-3xl p-6 sm:p-7">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {exp.title}
+                    </h3>
+                    <p className="text-sm font-medium text-accent">
+                      {exp.company}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5">
+                      {exp.type}
+                    </span>
+                    <p className="mt-1.5 text-xs text-slate-400">{exp.period}</p>
+                    <p className="text-xs text-slate-400">{exp.location}</p>
+                  </div>
+                </div>
+
+                <ul className="mt-4 space-y-1.5">
+                  {exp.bullets.map((b) => (
+                    <li
+                      key={b}
+                      className="flex gap-2.5 text-sm leading-relaxed text-slate-600"
+                    >
+                      <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                {exp.stack && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {exp.stack.map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-600"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
-} 
+}
