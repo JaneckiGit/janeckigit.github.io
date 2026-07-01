@@ -1,130 +1,152 @@
+"use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import { motion, Variants } from "framer-motion";
+import React from "react";
+import { TypeAnimation } from "react-type-animation";
+import { FaArrowRight, FaFilePdf, FaMapMarkerAlt } from "react-icons/fa";
 import SocialLinks from "./SocialLinks";
-import { TypeAnimation } from 'react-type-animation';
-import { Variants } from 'framer-motion';
-import Link from 'next/link';
+
+const container: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
 export default function Hero({ onContactClick }: { onContactClick: () => void }) {
-  const [showBg, setShowBg] = useState(false);
-  useEffect(() => {
-    setShowBg(true);
-  }, []);
-
-  // Animation for staggered children
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-  const item: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-  };
-
-  // Floating Download Resume Button
-  useEffect(() => {
-    const btn = document.getElementById('download-resume-btn');
-    if (btn) {
-      btn.style.setProperty('background', 'linear-gradient(90deg, var(--accent, #3b82f6), #a21caf)');
-    }
-  }, []);
-
   return (
-    <section id="home" className="flex min-h-screen w-full items-center justify-center relative">
-      {showBg && (
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-3xl max-h-[60vh] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/60 via-white/0 to-transparent dark:from-blue-900/40 dark:via-transparent dark:to-transparent blur-3xl" />
-        </div>
-      )}
+    <section
+      id="home"
+      className="relative flex min-h-screen w-full items-center justify-center pt-28 pb-16"
+    >
       <motion.div
-        className="text-center"
+        className="grid w-full items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14"
         variants={container}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.5 }}
+        animate="show"
       >
-        <motion.div
-          className="mx-auto h-60 w-60 md:h-80 md:w-80 rounded-full shadow-xl ring-4 ring-gradient transition-all hover:shadow-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-2"
-          variants={item}
-          viewport={{ once: false, amount: 0.5 }}
-        >
-          <div className="rounded-full bg-white dark:bg-gray-950 p-2">
-            <Image
-              src="/profilowe.JPG"
-              alt="Mateusz Janecki profile picture"
-              width={320}
-              height={320}
-              priority
-              className="rounded-full object-cover"
+        {/* Left — copy */}
+        <div className="order-2 text-center md:order-1 md:text-left">
+          <motion.div
+            variants={item}
+            className="mb-5 inline-flex items-center gap-2 rounded-full glass-soft px-4 py-1.5 text-sm font-medium text-slate-600"
+          >
+            <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_2px_rgba(16,185,129,0.5)]" />
+            Open to new opportunities
+          </motion.div>
+
+          <motion.h1
+            variants={item}
+            className="text-4xl font-semibold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+          >
+            Mateusz
+            <br />
+            <span className="accent-gradient-text">Janecki</span>
+          </motion.h1>
+
+          <motion.div
+            variants={item}
+            className="mt-4 flex min-h-[32px] justify-center text-lg font-medium text-slate-500 md:justify-start md:text-xl"
+          >
+            <TypeAnimation
+              sequence={[
+                "Scrum Master",
+                2000,
+                "with a technical background",
+                2000,
+                "QA & Test Automation",
+                2000,
+                "DevOps & Cloud",
+                2000,
+                "Project Coordinator",
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              className="font-semibold text-slate-700"
             />
+          </motion.div>
+
+          <motion.p
+            variants={item}
+            className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:mx-0"
+          >
+            Computer Science student at Cracow University of Technology,
+            blending hands-on software development, automated testing, and
+            DevOps with project management and clear team communication.
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 md:justify-start"
+          >
+            <FaMapMarkerAlt className="text-accent" /> Cracow, Poland
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 md:justify-start"
+          >
+            <button
+              onClick={onContactClick}
+              className="group inline-flex items-center gap-2 rounded-full accent-gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-[1.03]"
+            >
+              Get in touch
+              <FaArrowRight className="transition-transform group-hover:translate-x-0.5" />
+            </button>
+            <a
+              href="/Mateusz_Janecki_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold text-slate-700 transition-transform hover:scale-[1.03]"
+            >
+              <FaFilePdf className="text-accent" /> Download CV
+            </a>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-8 flex justify-center md:justify-start">
+            <SocialLinks size="2xl" />
+          </motion.div>
+        </div>
+
+        {/* Right — portrait in a liquid-glass frame */}
+        <motion.div
+          variants={item}
+          className="order-1 flex justify-center md:order-2"
+        >
+          <div className="relative">
+            {/* rotating soft ring */}
+            <div className="absolute -inset-6 -z-10 animate-ring rounded-[2.5rem] bg-[conic-gradient(from_0deg,#c7d2fe,#bae6fd,#fbcfe8,#ddd6fe,#c7d2fe)] opacity-60 blur-2xl" />
+            <div className="glass glass-sheen rounded-[2rem] p-3">
+              <div className="overflow-hidden rounded-[1.5rem]">
+                <Image
+                  src="/profile.jpg"
+                  alt="Mateusz Janecki"
+                  width={520}
+                  height={640}
+                  priority
+                  className="h-[360px] w-[300px] object-cover object-top sm:h-[440px] sm:w-[360px]"
+                />
+              </div>
+            </div>
+            {/* floating glass chip */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -bottom-5 -left-5 rounded-2xl glass px-4 py-3 text-left"
+            >
+              <div className="text-xs font-medium text-slate-500">Certified</div>
+              <div className="text-sm font-semibold text-slate-900">
+                Scrum Master (PSM I)
+              </div>
+            </motion.div>
           </div>
         </motion.div>
-        <motion.h1
-          className="mt-6 text-4xl font-bold md:text-5xl"
-          variants={item}
-          viewport={{ once: false, amount: 0.5 }}
-        >
-          Mateusz Janecki
-        </motion.h1>
-        <motion.div
-          className="mt-2 text-lg text-gray-600 dark:text-gray-400 md:text-xl flex justify-center items-center gap-2 min-h-[32px]"
-          variants={item}
-          viewport={{ once: false, amount: 0.5 }}
-        >
-          <TypeAnimation
-            sequence={['IT Student', 2000, 'Aspiring Software Developer', 2000, 'Cloud & DevOps Enthusiast', 2000, 'Open Source Contributor', 2000]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            className="font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-          />
-        </motion.div>
-        <motion.p
-          className="mx-auto mt-4 max-w-xl text-gray-500"
-          variants={item}
-          viewport={{ once: false, amount: 0.5 }}
-        >
-          Passionate about software development, DevOps, and new technologies. Currently exploring modern web frameworks and cloud infrastructure.
-        </motion.p>
-        <motion.div
-          className="mt-8 flex justify-center gap-4"
-          variants={item}
-          viewport={{ once: false, amount: 0.5 }}
-        >
-          <motion.button
-            onClick={onContactClick}
-            className="rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-3 font-semibold text-white shadow-md transition-transform hover:scale-105 hover:from-blue-600 hover:to-purple-600"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Contact Me
-          </motion.button>
-          <Link href="#contact">
-            <button className="mt-8 px-8 py-3 rounded-full text-white font-bold text-lg shadow-lg animate-bounce bg-gradient-to-r from-[var(--accent,#3b82f6)] to-pink-500 hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-[var(--accent,#3b82f6)]" style={{ boxShadow: '0 0 16px var(--accent, #3b82f6)' }}>
-              Hire Me
-            </button>
-          </Link>
-        </motion.div>
-        <motion.div className="mt-12 flex justify-center" variants={item} viewport={{ once: false, amount: 0.5 }}>
-          <SocialLinks size="4xl" center />
-        </motion.div>
-        {/* Floating Download Resume Button */}
-        <a
-          id="download-resume-btn"
-          href="/Mateusz_Janecki_CV.pdf"
-          download
-          className="fixed bottom-8 right-8 z-50 px-6 py-3 rounded-full text-white font-bold shadow-lg animate-pulse bg-gradient-to-r from-[var(--accent,#3b82f6)] to-pink-500 hover:scale-110 transition-transform focus:outline-none focus:ring-4 focus:ring-[var(--accent,#3b82f6)]"
-          style={{ boxShadow: '0 0 24px var(--accent, #3b82f6)' }}
-        >
-          Download CV
-        </a>
       </motion.div>
     </section>
   );
-} 
+}

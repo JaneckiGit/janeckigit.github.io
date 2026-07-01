@@ -8,13 +8,20 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="w-full py-6 flex flex-col gap-2 justify-center items-center glass border-t-4 border-transparent bg-white/30 dark:bg-black/30 backdrop-blur-lg mt-16"
+      className="mx-auto mt-10 w-full max-w-5xl px-4 pb-10"
     >
-      <div className="w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-60 rounded-t-full mb-2" />
-      <SocialLinks />
-      <span className="text-gray-700 dark:text-gray-200 text-sm text-center">
-        &copy; {new Date().getFullYear()} Mateusz Janecki. All rights reserved.
-      </span>
+      <div className="glass glass-sheen flex flex-col items-center gap-5 rounded-3xl px-6 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div>
+          <p className="text-base font-semibold text-slate-900">Mateusz Janecki</p>
+          <p className="text-sm text-slate-500">
+            Scrum Master with a technical background · Cracow, Poland
+          </p>
+        </div>
+        <SocialLinks size="xl" />
+      </div>
+      <p className="mt-5 text-center text-xs text-slate-400">
+        © {new Date().getFullYear()} Mateusz Janecki. All rights reserved.
+      </p>
     </motion.footer>
   );
-} 
+}

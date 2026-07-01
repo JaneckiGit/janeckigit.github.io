@@ -1,130 +1,191 @@
+"use client";
 import React, { useState } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { FaCertificate, FaExternalLinkAlt } from "react-icons/fa";
+import SectionHeading from "./SectionHeading";
 
-const certificateData = [
+type Cert = {
+  name: string;
+  issuer: string;
+  date: string;
+  url?: string;
+  details: string;
+  skills: string[];
+};
+
+const certificateData: Cert[] = [
+  {
+    name: "Google Certificate — AI in Business Development",
+    issuer: "Google",
+    date: "Sep 2025",
+    details:
+      "Applying artificial intelligence to business development: identifying opportunities, streamlining workflows, and using AI tools to support decision-making and growth.",
+    skills: ["AI", "Business Development"],
+  },
   {
     name: "Professional Scrum Master™ I (PSM I)",
     issuer: "Scrum.org",
-    url: "",
-    details: "Demonstrates a fundamental level of Scrum mastery, including Scrum roles, events, and artifacts. I learned how to facilitate agile teams, improve project delivery, and foster collaboration."
+    date: "Mar 2025",
+    url: "https://www.credly.com/badges/3d52d958-2d4a-4e41-9f34-4241112b1328",
+    details:
+      "Fundamental mastery of Scrum — roles, events, and artifacts. Facilitating agile teams, improving delivery, and fostering collaboration.",
+    skills: ["Agile Methodologies", "Coaching", "Scrum"],
   },
   {
-    name: "Skills of Tomorrow certificate",
+    name: "Skills of Tomorrow",
     issuer: "Google",
-    url: "",
-    details: "Focused on digital skills for the future, including cloud, collaboration, and productivity tools. I learned about modern workplace technologies and digital transformation."
+    date: "2023",
+    details:
+      "Digital skills for the future workplace — cloud, collaboration, and productivity tools, plus digital transformation fundamentals.",
+    skills: ["Digital Skills", "Collaboration"],
   },
   {
     name: "Google Cloud Essentials",
     issuer: "Google",
-    url: "",
-    details: "Covers the basics of Google Cloud Platform, including cloud infrastructure, virtual machines, storage, and networking. I learned how to deploy and manage cloud resources."
+    date: "Sep 2022",
+    details:
+      "Basics of Google Cloud Platform — cloud infrastructure, virtual machines, storage, and networking, including deploying and managing cloud resources.",
+    skills: ["Google Cloud Platform (GCP)"],
   },
   {
     name: "Team Mentoring Principles",
     issuer: "Zwolnieni z Teorii",
-    url: "",
-    details: "Explores effective mentoring and teamwork strategies. I learned how to support and guide team members, foster growth, and build a positive team culture."
+    date: "May 2022",
+    details:
+      "Effective mentoring and teamwork strategies — supporting and guiding team members, fostering growth, and building a positive team culture.",
+    skills: ["Coaching", "Leadership"],
+  },
+  {
+    name: "Project Management Advanced Training",
+    issuer: "Project Management Institute",
+    date: "Aug 2021",
+    details:
+      "Advanced project management — planning, risk management, and leadership for complex projects and teams.",
+    skills: ["Scrum", "Agile Methodologies"],
   },
   {
     name: "Digital Skills",
     issuer: "Google",
-    url: "",
-    details: "Covers essential digital skills for the modern workplace, including online communication, collaboration, and security."
+    date: "Aug 2021",
+    details:
+      "Essential digital skills — online communication, marketing strategy, collaboration, and security for the modern workplace.",
+    skills: ["Marketing", "Strategy"],
   },
   {
-    name: "Project Management Advanced Training",
-    issuer: "PMI",
-    url: "",
-    details: "Advanced project management concepts, including planning, risk management, and leadership. I learned how to manage complex projects and lead teams to success."
+    name: "Project Management Fundamentals",
+    issuer: "Project Management Institute",
+    date: "May 2021",
+    details:
+      "Core project management concepts — planning, execution, and agile delivery within teams.",
+    skills: ["Scrum", "Agile Methodologies"],
   },
 ];
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
-    scale: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.4,
-      ease: "easeOut",
-    },
+    y: 0,
+    transition: { delay: i * 0.06, duration: 0.45, ease: "easeOut" },
   }),
 };
 
 export default function Certificates() {
-  const [selected, setSelected] = useState<null | typeof certificateData[0]>(null);
+  const [selected, setSelected] = useState<Cert | null>(null);
 
   return (
-    <section id="certificates" className="w-full max-w-5xl mx-auto py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">Certificates</h2>
-      <p className="text-center text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">A selection of my most valuable certificates and achievements in IT, cloud, and project management.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="certificates" className="mx-auto w-full max-w-5xl px-4 py-20">
+      <SectionHeading
+        eyebrow="Certifications"
+        title="Credentials & continuous learning"
+      />
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {certificateData.map((cert, i) => (
-          <motion.div
-            key={i}
-            className="group relative flex flex-col items-center justify-center p-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:border-blue-400 dark:hover:border-blue-500 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-blue-200 before:to-purple-200 before:opacity-0 group-hover:before:opacity-40 before:transition-opacity before:duration-300 cursor-pointer"
+          <motion.button
+            key={cert.name}
             custom={i}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
             onClick={() => setSelected(cert)}
-            tabIndex={0}
-            role="button"
+            className="glass glass-sheen group flex flex-col items-start rounded-3xl p-6 text-left transition-transform hover:scale-[1.02]"
             aria-label={`Show details for ${cert.name}`}
           >
-            <motion.span
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 2, delay: i * 0.2, repeatType: 'reverse' }}
-            >
-              <FaCertificate className="text-4xl text-yellow-500 mb-4" />
-            </motion.span>
-            <h3 className="text-lg font-semibold text-center">{cert.name}</h3>
-            <p className="text-sm text-gray-500">{cert.issuer}</p>
-            {cert.url && (
-              <a
-                href={cert.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                View Certificate <FaExternalLinkAlt className="ml-2" />
-              </a>
-            )}
-          </motion.div>
+            <div className="flex w-full items-center justify-between">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 text-xl text-amber-500">
+                <FaCertificate />
+              </span>
+              <span className="text-xs font-medium text-slate-400">
+                {cert.date}
+              </span>
+            </div>
+            <h3 className="mt-4 text-sm font-semibold leading-snug text-slate-900">
+              {cert.name}
+            </h3>
+            <p className="mt-1 text-xs text-slate-500">{cert.issuer}</p>
+          </motion.button>
         ))}
       </div>
+
       <AnimatePresence>
         {selected && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/30 p-4 backdrop-blur-sm"
             onClick={() => setSelected(null)}
           >
             <motion.div
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 40, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-lg w-full relative"
-              onClick={e => e.stopPropagation()}
+              initial={{ y: 30, opacity: 0, scale: 0.97 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ y: 30, opacity: 0, scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 240, damping: 24 }}
+              className="glass relative w-full max-w-lg rounded-3xl p-8"
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 text-2xl"
+                className="absolute right-5 top-5 text-2xl leading-none text-slate-400 hover:text-slate-700"
                 aria-label="Close"
               >
                 ×
               </button>
-              <h3 className="text-2xl font-bold mb-2 text-center">{selected.name}</h3>
-              <p className="text-center text-gray-500 mb-4">{selected.issuer}</p>
-              <div className="text-gray-700 dark:text-gray-200 text-center whitespace-pre-line">{selected.details}</div>
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-2xl text-amber-500">
+                <FaCertificate />
+              </span>
+              <h3 className="mt-4 text-xl font-semibold text-slate-900">
+                {selected.name}
+              </h3>
+              <p className="text-sm font-medium text-accent">
+                {selected.issuer} · {selected.date}
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                {selected.details}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {selected.skills.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+              {selected.url && (
+                <a
+                  href={selected.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full accent-gradient-bg px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-transform hover:scale-[1.03]"
+                >
+                  Show credential <FaExternalLinkAlt className="text-xs" />
+                </a>
+              )}
             </motion.div>
           </motion.div>
         )}
