@@ -2,7 +2,7 @@ import "./globals.css";
 import React from "react";
 import type { Metadata } from "next";
 
-const SITE_URL = "https://janeckigit.github.io";
+const SITE_URL = "https://janeckimateusz.com";
 const NAME = "Mateusz Janecki";
 const TITLE = "Mateusz Janecki — Scrum Master & IT";
 const DESCRIPTION =
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   publisher: NAME,
   keywords: [
     "Mateusz Janecki",
+    "Janecki Mateusz",
     "Scrum Master",
     "PSM I",
     "portfolio",
@@ -82,6 +83,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: NAME,
+  alternateName: "Janecki Mateusz",
   url: SITE_URL,
   image: `${SITE_URL}/profile.jpg`,
   jobTitle: "Scrum Master",
