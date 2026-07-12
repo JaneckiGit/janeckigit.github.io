@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://avatars.githubusercontent.com/u/100022533?v=4" width="120" style="border-radius:50%" alt="Mateusz Janecki" />
+<img src="https://raw.githubusercontent.com/JaneckiGit/janeckigit.github.io/main/modern-portfolio/public/profile.jpg" width="220" alt="Mateusz Janecki" />
 
 # Hi, I'm Mateusz Janecki 👋
 
