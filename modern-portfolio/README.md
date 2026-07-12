@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# modern-portfolio
 
-## Getting Started
+The Next.js application powering **[janeckimateusz.com](https://janeckimateusz.com)** — the personal portfolio of [Mateusz Janecki](https://github.com/JaneckiGit).
 
-First, run the development server:
+> 📖 Full project overview, screenshots and deployment details: see the [repository README](../README.md).
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # dev server with Turbopack → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server (Turbopack) |
+| `npm run build` | Production build + static export to `./out` |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```
+src/app/
+├── components/       # UI sections & building blocks
+│   ├── Hero.tsx            # Landing section with typewriter animation
+│   ├── About.tsx           # Bio, skills, languages, contact cards
+│   ├── Experience.tsx      # Timeline of roles & internships
+│   ├── Projects.tsx        # Selected work
+│   ├── Education.tsx       # Academic background
+│   ├── Certificates.tsx    # Certifications (PSM I, Google Cloud, …)
+│   ├── ContactSection.tsx  # Contact form & links
+│   └── …                   # Navbar, Footer, LiquidBackground, etc.
+├── layout.tsx        # Root layout, SEO metadata, Open Graph, JSON-LD
+├── page.tsx          # Home page composition
+├── sitemap.ts        # sitemap.xml generation
+└── robots.ts         # robots.txt generation
 
-To learn more about Next.js, take a look at the following resources:
+public/               # Photos, CV (PDF), OG image, favicons
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 15 (App Router, `output: "export"`) · React 19 · TypeScript · Tailwind CSS 4 · Framer Motion · react-icons · react-type-animation · tsParticles

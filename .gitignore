@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+modern-portfolio/.next/
+modern-portfolio/out/
+
+# Misc
+.DS_Store
+*.log
+.env*
