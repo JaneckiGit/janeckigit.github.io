@@ -36,7 +36,7 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: "Deploy Next.js app to Pages"
-          cname: '' # Add your custom domain here if you have one
+          cname: 'janeckimateusz.com'
           force_orphan: true
 
       - name: Create .nojekyll file
