@@ -52,7 +52,9 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
           >
             <TypeAnimation
               sequence={[
-                "Scrum Master",
+                "Scrum Master (PSM I)",
+                2000,
+                "based in Kraków",
                 2000,
                 "with a technical background",
                 2000,
@@ -83,7 +85,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
             variants={item}
             className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 md:justify-start"
           >
-            <FaMapMarkerAlt className="text-accent" /> Cracow, Poland
+            <FaMapMarkerAlt className="text-accent" /> Kraków (Cracow), Poland
           </motion.div>
 
           <motion.div

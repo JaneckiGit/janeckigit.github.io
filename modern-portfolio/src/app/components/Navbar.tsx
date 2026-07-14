@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Certificates", href: "#certificates" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Content", href: "/content" },
+  { name: "Certificates", href: "/#certificates" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar({ currentSection }: { currentSection?: string }) {
@@ -47,7 +48,7 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
           {/* Desktop links */}
           <ul className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => {
-              const active = currentSection === link.href.replace("#", "");
+              const active = currentSection === link.href.replace("/#", "");
               return (
                 <li key={link.name} className="relative">
                   <a

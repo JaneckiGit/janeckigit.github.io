@@ -57,9 +57,10 @@ export default function About() {
           className="glass glass-sheen rounded-3xl p-8"
         >
           <p className="text-lg leading-relaxed text-slate-700">
-            I&apos;m a Computer Science student at Cracow University of
-            Technology with hands-on experience in software development,
-            automated software testing, and DevOps.
+            I&apos;m a certified Scrum Master (PSM I) and Computer Science
+            student at Cracow University of Technology in Kraków, with hands-on
+            experience in software development, automated software testing, and
+            DevOps.
           </p>
           <p className="mt-4 leading-relaxed text-slate-600">
             I combine technical development with project management
@@ -123,7 +124,7 @@ export default function About() {
 
           <div className="mt-auto flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm text-slate-600">
             <FaMapMarkerAlt className="text-accent" />
-            Based in Cracow, Poland — open to hybrid & remote
+            Based in Kraków (Cracow), Poland — open to hybrid & remote
           </div>
         </motion.div>
       </div>
