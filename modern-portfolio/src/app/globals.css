@@ -168,12 +168,12 @@ body {
 #CybotCookiebotDialog {
   top: auto !important;
   bottom: 24px !important;
-  transform: translateX(-50%) scale(0.33) !important;
+  transform: translateX(-50%) scale(0.66) !important;
   transform-origin: bottom center !important;
 }
 @media (max-width: 600px) {
   #CybotCookiebotDialog {
     bottom: 0 !important;
-    transform: translateX(-50%) scale(0.45) !important;
+    transform: translateX(-50%) scale(0.85) !important;
   }
 }
