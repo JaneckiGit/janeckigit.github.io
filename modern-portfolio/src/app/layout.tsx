@@ -133,9 +133,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
-        {/* Consent Mode v2 defaults, then the Cookie Information CMP (loaded here so the
-            defaults are guaranteed to be set first). The CMP banner only shows once
-            janeckimateusz.com is registered in the Cookie Information account. */}
+        {/* Consent Mode v2 defaults, then the Cookiebot CMP (loaded here so the
+            defaults are guaranteed to be set first). */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -150,12 +149,11 @@ export default function RootLayout({
               });
               (function () {
                 var s = document.createElement('script');
-                s.id = 'CookieConsent';
-                s.src = 'https://policy.app.cookieinformation.com/uc.js';
+                s.id = 'Cookiebot';
+                s.src = 'https://consent.cookiebot.com/uc.js';
                 s.type = 'text/javascript';
                 s.async = true;
-                s.setAttribute('data-culture', 'PL');
-                s.setAttribute('data-gcm-version', '2.0');
+                s.setAttribute('data-cbid', '1ce4c579-d1eb-4b5d-9bf9-61bd221f10a7');
                 document.head.appendChild(s);
               })();
             `,
