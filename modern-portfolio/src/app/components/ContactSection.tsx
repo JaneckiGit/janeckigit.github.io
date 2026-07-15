@@ -37,20 +37,41 @@ const channels = [
   },
 ];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mrenekgq";
+
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name} (${form.email})`
-    );
-    window.location.href = `mailto:mateuszjanecki04@gmail.com?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio message from ${form.name}`,
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -132,11 +153,23 @@ export default function ContactSection() {
           />
           <button
             type="submit"
-            className="group inline-flex items-center justify-center gap-2 rounded-full accent-gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-[1.02]"
+            disabled={status === "sending"}
+            className="group inline-flex items-center justify-center gap-2 rounded-full accent-gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-[1.02] disabled:opacity-60"
           >
-            Send message
+            {status === "sending" ? "Sending…" : "Send message"}
             <FaArrowRight className="transition-transform group-hover:translate-x-0.5" />
           </button>
+          {status === "success" && (
+            <p className="text-center text-sm font-medium text-emerald-600">
+              Thanks! Your message has been sent — I&apos;ll reply soon.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-sm font-medium text-red-500">
+              Something went wrong. Please try again or email me directly at
+              mateuszjanecki04@gmail.com.
+            </p>
+          )}
         </motion.form>
       </div>
     </section>

@@ -5,6 +5,8 @@ import { FaCheckCircle, FaTimesCircle, FaEnvelope, FaRegCopy } from "react-icons
 
 type Status = "idle" | "sending" | "success" | "error";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mrenekgq";
+
 export default function ContactModal({
   isOpen,
   onClose,
@@ -17,19 +19,33 @@ export default function ContactModal({
   const [copied, setCopied] = useState(false);
   const emailRef = useRef<HTMLSpanElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       setStatus("error");
       return;
     }
     setStatus("sending");
-    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    setTimeout(() => {
-      window.location.href = `mailto:mateuszjanecki04@gmail.com?subject=${subject}&body=${body}`;
-      setStatus("success");
-    }, 700);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio message from ${form.name}`,
+        }),
+      });
+      if (res.ok) {
+        setForm({ name: "", email: "", message: "" });
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const handleCopy = () => {
@@ -110,7 +126,9 @@ export default function ContactModal({
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                     />
                     {status === "error" && (
-                      <span className="text-xs text-red-500">Please fill in all fields.</span>
+                      <span className="text-xs text-red-500">
+                        Please fill in all fields, or email me directly if this keeps failing.
+                      </span>
                     )}
                     <button
                       type="submit"
@@ -147,7 +165,7 @@ export default function ContactModal({
                   exit={{ opacity: 0, scale: 0.8 }}
                 >
                   <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-400 border-t-transparent" />
-                  <p className="text-slate-600">Opening your mail app…</p>
+                  <p className="text-slate-600">Sending your message…</p>
                 </motion.div>
               )}
 
@@ -159,7 +177,7 @@ export default function ContactModal({
                   animate={{ opacity: 1, scale: 1 }}
                 >
                   <FaCheckCircle className="h-12 w-12 text-emerald-500" />
-                  <p className="text-slate-600">Ready to send!</p>
+                  <p className="text-slate-600">Message sent — thank you!</p>
                 </motion.div>
               )}
             </AnimatePresence>

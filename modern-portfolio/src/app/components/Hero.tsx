@@ -15,6 +15,13 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
+const stats = [
+  { value: "PSM I", label: "Certified Scrum Master" },
+  { value: "18", label: "Certificates & courses" },
+  { value: "3rd", label: "Year of CS studies" },
+  { value: "2", label: "R&D internships" },
+];
+
 export default function Hero({ onContactClick }: { onContactClick: () => void }) {
   return (
     <section
@@ -109,6 +116,25 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
 
           <motion.div variants={item} className="mt-8 flex justify-center md:justify-start">
             <SocialLinks size="2xl" />
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mx-auto mt-10 grid max-w-lg grid-cols-2 gap-3 sm:grid-cols-4 md:mx-0"
+          >
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="glass-soft rounded-2xl px-4 py-3 text-center md:text-left"
+              >
+                <div className="accent-gradient-text text-2xl font-bold leading-none">
+                  {s.value}
+                </div>
+                <div className="mt-1 text-xs font-medium text-slate-500">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
 
