@@ -163,3 +163,15 @@ body {
   background: rgba(100, 116, 139, 0.5);
   background-clip: content-box;
 }
+
+/* Cookiebot consent banner — pin to the bottom of the screen instead of centered */
+#CybotCookiebotDialog {
+  top: auto !important;
+  bottom: 24px !important;
+  transform: translateX(-50%) !important;
+}
+@media (max-width: 600px) {
+  #CybotCookiebotDialog {
+    bottom: 0 !important;
+  }
+}
