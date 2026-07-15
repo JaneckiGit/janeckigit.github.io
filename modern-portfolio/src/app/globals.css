@@ -164,14 +164,16 @@ body {
   background-clip: content-box;
 }
 
-/* Cookiebot consent banner — pin to the bottom of the screen instead of centered */
+/* Cookiebot consent banner — pin to the bottom of the screen and shrink to ~1/3 size */
 #CybotCookiebotDialog {
   top: auto !important;
   bottom: 24px !important;
-  transform: translateX(-50%) !important;
+  transform: translateX(-50%) scale(0.33) !important;
+  transform-origin: bottom center !important;
 }
 @media (max-width: 600px) {
   #CybotCookiebotDialog {
     bottom: 0 !important;
+    transform: translateX(-50%) scale(0.45) !important;
   }
 }
