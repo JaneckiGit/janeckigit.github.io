@@ -1,8 +1,10 @@
 import "./globals.css";
 import React from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 const SITE_URL = "https://janeckimateusz.com";
+const GA_MEASUREMENT_ID = "G-Q88E0JEZVD";
 const NAME = "Mateusz Janecki";
 const TITLE = "Mateusz Janecki — Scrum Master & IT";
 const DESCRIPTION =
@@ -135,6 +137,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </head>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
