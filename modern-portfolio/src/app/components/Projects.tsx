@@ -44,13 +44,13 @@ export default function Projects() {
 
               {/* Content */}
               <div className="p-7 sm:p-8">
-                <h3 className="text-xl font-semibold text-slate-900">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
                   {project.title}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-accent">
                   {project.tagline}
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {project.description}
                 </p>
 
@@ -58,7 +58,7 @@ export default function Projects() {
                   {project.highlights.map((h) => (
                     <li
                       key={h.text}
-                      className="flex items-center gap-3 text-sm text-slate-700"
+                      className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200"
                     >
                       <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-indigo-50 text-accent">
                         {h.icon}
@@ -72,7 +72,7 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5"
+                      className="rounded-full bg-white/60 dark:bg-white/5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-slate-900/5"
                     >
                       {t}
                     </span>
@@ -83,7 +83,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full glass-soft px-5 py-2.5 text-sm font-semibold text-slate-700 transition-transform hover:scale-[1.03]"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full glass-soft px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 transition-transform hover:scale-[1.03]"
                 >
                   <FaGithub /> View on GitHub
                 </a>

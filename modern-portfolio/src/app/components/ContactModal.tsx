@@ -86,7 +86,7 @@ export default function ContactModal({
           >
             <button
               onClick={onClose}
-              className="absolute right-5 top-5 text-slate-400 transition-transform hover:scale-110 hover:text-slate-700"
+              className="absolute right-5 top-5 text-slate-400 transition-transform hover:scale-110 hover:text-slate-700 dark:hover:text-slate-200"
               aria-label="Close"
             >
               <FaTimesCircle className="h-6 w-6" />
@@ -95,10 +95,10 @@ export default function ContactModal({
             <AnimatePresence mode="wait">
               {(status === "idle" || status === "error") && (
                 <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                  <h2 className="mb-1 text-center text-2xl font-semibold text-slate-900">
+                  <h2 className="mb-1 text-center text-2xl font-semibold text-slate-900 dark:text-slate-100">
                     Get in touch
                   </h2>
-                  <p className="mb-5 text-center text-sm text-slate-500">
+                  <p className="mb-5 text-center text-sm text-slate-500 dark:text-slate-400">
                     I&apos;ll get back to you as soon as I can.
                   </p>
                   <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -106,7 +106,7 @@ export default function ContactModal({
                       type="text"
                       placeholder="Name"
                       required
-                      className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
+                      className="rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
@@ -114,14 +114,14 @@ export default function ContactModal({
                       type="email"
                       placeholder="Email"
                       required
-                      className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
+                      className="rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                     />
                     <textarea
                       placeholder="Message"
                       required
-                      className="min-h-[110px] rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
+                      className="min-h-[110px] rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none ring-accent/30 focus:ring-2"
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                     />
@@ -138,14 +138,14 @@ export default function ContactModal({
                     </button>
                   </form>
                   <div className="mt-6 flex flex-col items-center gap-1">
-                    <span className="flex items-center gap-2 text-sm font-medium text-slate-600">
+                    <span className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
                       <FaEnvelope className="text-accent" />
                       <a href="mailto:mateuszjanecki04@gmail.com" className="hover:underline">
                         <span ref={emailRef}>mateuszjanecki04@gmail.com</span>
                       </a>
                       <button
                         onClick={handleCopy}
-                        className="rounded p-1 transition-colors hover:bg-slate-900/5"
+                        className="rounded p-1 transition-colors hover:bg-slate-900/5 dark:hover:bg-white/10"
                         aria-label="Copy email"
                       >
                         <FaRegCopy className="inline" />
@@ -165,7 +165,7 @@ export default function ContactModal({
                   exit={{ opacity: 0, scale: 0.8 }}
                 >
                   <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-400 border-t-transparent" />
-                  <p className="text-slate-600">Sending your message…</p>
+                  <p className="text-slate-600 dark:text-slate-300">Sending your message…</p>
                 </motion.div>
               )}
 
@@ -177,7 +177,7 @@ export default function ContactModal({
                   animate={{ opacity: 1, scale: 1 }}
                 >
                   <FaCheckCircle className="h-12 w-12 text-emerald-500" />
-                  <p className="text-slate-600">Message sent — thank you!</p>
+                  <p className="text-slate-600 dark:text-slate-300">Message sent — thank you!</p>
                 </motion.div>
               )}
             </AnimatePresence>

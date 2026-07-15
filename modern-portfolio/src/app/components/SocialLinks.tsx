@@ -42,7 +42,7 @@ export default function SocialLinks({ size = "2xl", center = false }: SocialLink
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.name}
-          className={`flex h-11 w-11 items-center justify-center rounded-full glass-soft ${sizeMap[size]} text-slate-600 transition-all hover:scale-110 hover:text-accent`}
+          className={`flex h-11 w-11 items-center justify-center rounded-full glass-soft ${sizeMap[size]} text-slate-600 dark:text-slate-300 transition-all hover:scale-110 hover:text-accent`}
         >
           {social.icon}
         </a>

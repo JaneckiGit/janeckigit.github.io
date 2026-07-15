@@ -134,6 +134,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
+        {/* Set the theme class before paint to avoid a flash of the wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){try{if(localStorage.getItem('theme')==='dark'){
+              document.documentElement.classList.add('dark');}}catch(e){}})();
+            `,
+          }}
+        />
         {/* Consent Mode v2 defaults, then the Cookiebot CMP (loaded here so the
             defaults are guaranteed to be set first). */}
         <script

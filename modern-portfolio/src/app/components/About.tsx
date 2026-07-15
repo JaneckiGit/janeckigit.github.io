@@ -56,12 +56,12 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="glass glass-sheen rounded-3xl p-8"
         >
-          <p className="text-lg leading-relaxed text-slate-700">
+          <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-200">
             I&apos;m a Computer Science student at Cracow University of
             Technology with hands-on experience in software development,
             automated software testing, and DevOps.
           </p>
-          <p className="mt-4 leading-relaxed text-slate-600">
+          <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
             I combine technical development with project management
             responsibilities — task creation, clarification, and team
             coordination — backed by a solid technical background and very good
@@ -76,7 +76,7 @@ export default function About() {
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm font-medium text-slate-700 transition-transform hover:scale-[1.02]"
+                className="flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 transition-transform hover:scale-[1.02]"
               >
                 <span className="text-accent">{c.icon}</span>
                 <span className="truncate">{c.label}</span>
@@ -104,10 +104,10 @@ export default function About() {
               ].map((l) => (
                 <div key={l.name}>
                   <div className="mb-1 flex justify-between text-sm">
-                    <span className="font-medium text-slate-700">{l.name}</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-200">{l.name}</span>
                     <span className="text-slate-400">{l.level}</span>
                   </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-slate-200/70">
+                  <div className="h-2 overflow-hidden rounded-full bg-slate-200/70 dark:bg-white/10">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${l.pct}%` }}
@@ -121,7 +121,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="mt-auto flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm text-slate-600">
+          <div className="mt-auto flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm text-slate-600 dark:text-slate-300">
             <FaMapMarkerAlt className="text-accent" />
             Based in Cracow, Poland — open to hybrid & remote
           </div>
@@ -139,14 +139,14 @@ export default function About() {
             transition={{ duration: 0.5, delay: i * 0.06 }}
             className="glass-soft rounded-3xl p-6"
           >
-            <h4 className="mb-3 text-sm font-semibold text-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-800 dark:text-slate-100">
               {group.label}
             </h4>
             <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5"
+                  className="rounded-full bg-white/60 dark:bg-white/5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-slate-900/5"
                 >
                   {item}
                 </span>

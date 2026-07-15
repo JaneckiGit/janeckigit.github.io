@@ -11,8 +11,8 @@ export default function LiquidBackground() {
       aria-hidden
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* Base light wash */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f6fc_0%,#eef1f8_45%,#f6f4fb_100%)]" />
+      {/* Base wash */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f6fc_0%,#eef1f8_45%,#f6f4fb_100%)] dark:bg-[linear-gradient(180deg,#0b1120_0%,#0e1526_45%,#0b1018_100%)]" />
 
       {/* Drifting colour blooms */}
       <div className="blob animate-drift-1 left-[-8%] top-[-6%] h-[42vw] w-[42vw] max-h-[520px] max-w-[520px] bg-[radial-gradient(circle_at_center,#c7d2fe,transparent_70%)]" />

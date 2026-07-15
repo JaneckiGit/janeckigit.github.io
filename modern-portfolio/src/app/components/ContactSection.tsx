@@ -87,7 +87,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-3"
         >
-          <p className="mb-2 text-slate-600">
+          <p className="mb-2 text-slate-600 dark:text-slate-300">
             Interested in collaborating, hiring, or just want to connect? I&apos;m
             always happy to talk.
           </p>
@@ -106,7 +106,7 @@ export default function ContactSection() {
                 <span className="block text-xs font-medium uppercase tracking-wider text-slate-400">
                   {c.label}
                 </span>
-                <span className="block truncate text-sm font-semibold text-slate-800">
+                <span className="block truncate text-sm font-semibold text-slate-800 dark:text-slate-100">
                   {c.value}
                 </span>
               </span>
@@ -131,7 +131,7 @@ export default function ContactSection() {
               required
               value={form.name}
               onChange={handleChange}
-              className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
+              className="rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm text-slate-800 dark:text-slate-100 outline-none ring-accent/30 transition focus:ring-2"
             />
             <input
               type="email"
@@ -140,7 +140,7 @@ export default function ContactSection() {
               required
               value={form.email}
               onChange={handleChange}
-              className="rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
+              className="rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm text-slate-800 dark:text-slate-100 outline-none ring-accent/30 transition focus:ring-2"
             />
           </div>
           <textarea
@@ -149,7 +149,7 @@ export default function ContactSection() {
             required
             value={form.message}
             onChange={handleChange}
-            className="min-h-[140px] rounded-xl border border-white/60 bg-white/60 px-4 py-3 text-sm text-slate-800 outline-none ring-accent/30 transition focus:ring-2"
+            className="min-h-[140px] rounded-xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm text-slate-800 dark:text-slate-100 outline-none ring-accent/30 transition focus:ring-2"
           />
           <button
             type="submit"

@@ -12,8 +12,8 @@ export default function Footer() {
     >
       <div className="glass glass-sheen flex flex-col items-center gap-5 rounded-3xl px-6 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
         <div>
-          <p className="text-base font-semibold text-slate-900">Mateusz Janecki</p>
-          <p className="text-sm text-slate-500">
+          <p className="text-base font-semibold text-slate-900 dark:text-slate-100">Mateusz Janecki</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             Scrum Master with a technical background · Cracow, Poland
           </p>
         </div>

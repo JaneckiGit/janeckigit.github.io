@@ -22,7 +22,7 @@ export default function SectionHeading({
       <span className="inline-flex items-center gap-2 rounded-full glass-soft px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
         {eyebrow}
       </span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
         {title}
       </h2>
     </motion.div>

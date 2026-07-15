@@ -44,15 +44,15 @@ export default function Education() {
                 {item.date}
               </span>
             </div>
-            <h3 className="mt-5 text-lg font-semibold text-slate-900">
+            <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-slate-100">
               {item.title}
             </h3>
-            <p className="mt-1 text-sm text-slate-600">{item.subtitle}</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{item.subtitle}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {item.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5"
+                  className="rounded-full bg-white/60 dark:bg-white/5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-slate-900/5"
                 >
                   {t}
                 </span>

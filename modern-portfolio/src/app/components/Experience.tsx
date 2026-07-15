@@ -95,7 +95,7 @@ export default function Experience() {
               <div className="glass glass-sheen rounded-3xl p-6 sm:p-7">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
                       {exp.title}
                     </h3>
                     <p className="text-sm font-medium text-accent">
@@ -103,7 +103,7 @@ export default function Experience() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-900/5">
+                    <span className="rounded-full bg-white/60 dark:bg-white/5 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-slate-900/5">
                       {exp.type}
                     </span>
                     <p className="mt-1.5 text-xs text-slate-400">{exp.period}</p>
@@ -115,7 +115,7 @@ export default function Experience() {
                   {exp.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-2.5 text-sm leading-relaxed text-slate-600"
+                      className="flex gap-2.5 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
                     >
                       <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent" />
                       {b}

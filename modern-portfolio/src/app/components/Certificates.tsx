@@ -121,10 +121,10 @@ export default function Certificates() {
                 {cert.date}
               </span>
             </div>
-            <h3 className="mt-4 text-sm font-semibold leading-snug text-slate-900">
+            <h3 className="mt-4 text-sm font-semibold leading-snug text-slate-900 dark:text-slate-100">
               {cert.name}
             </h3>
-            <p className="mt-1 text-xs text-slate-500">{cert.issuer}</p>
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{cert.issuer}</p>
           </motion.button>
         ))}
       </div>
@@ -149,7 +149,7 @@ export default function Certificates() {
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute right-5 top-5 text-2xl leading-none text-slate-400 hover:text-slate-700"
+                className="absolute right-5 top-5 text-2xl leading-none text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
                 aria-label="Close"
               >
                 ×
@@ -157,13 +157,13 @@ export default function Certificates() {
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-2xl text-amber-500">
                 <FaCertificate />
               </span>
-              <h3 className="mt-4 text-xl font-semibold text-slate-900">
+              <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-slate-100">
                 {selected.name}
               </h3>
               <p className="text-sm font-medium text-accent">
                 {selected.issuer} · {selected.date}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {selected.details}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">

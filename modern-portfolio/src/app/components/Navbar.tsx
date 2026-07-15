@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -36,7 +37,7 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
         >
           <a
             href="#home"
-            className="flex items-center gap-2 text-base font-semibold tracking-tight text-slate-900"
+            className="flex items-center gap-2 text-base font-semibold tracking-tight text-slate-900 dark:text-slate-100"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full accent-gradient-bg text-sm font-bold text-white shadow-md">
               MJ
@@ -55,7 +56,7 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
                     className={`relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
                       active
                         ? "text-white"
-                        : "text-slate-600 hover:text-slate-900"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     {active && (
@@ -72,26 +73,29 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
             })}
           </ul>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-slate-700"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Right cluster: theme toggle + mobile menu button */}
+          <div className="flex items-center gap-1">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-slate-700 dark:text-slate-200"
+              aria-label="Toggle menu"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 7h16M4 12h16M4 17h16"}
-              />
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 7h16M4 12h16M4 17h16"}
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -104,7 +108,7 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-30 flex flex-col items-center justify-center md:hidden"
           >
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-2xl" />
+            <div className="absolute inset-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-2xl" />
             <ul className="relative flex flex-col items-center gap-4">
               {navLinks.map((link, i) => (
                 <motion.li
@@ -116,7 +120,7 @@ export default function Navbar({ currentSection }: { currentSection?: string }) 
                   <a
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-medium text-slate-800"
+                    className="text-2xl font-medium text-slate-800 dark:text-slate-100"
                   >
                     {link.name}
                   </a>

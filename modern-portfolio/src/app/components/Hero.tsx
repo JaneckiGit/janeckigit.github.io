@@ -38,7 +38,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
         <div className="order-2 text-center md:order-1 md:text-left">
           <motion.div
             variants={item}
-            className="mb-5 inline-flex items-center gap-2 rounded-full glass-soft px-4 py-1.5 text-sm font-medium text-slate-600"
+            className="mb-5 inline-flex items-center gap-2 rounded-full glass-soft px-4 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300"
           >
             <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_2px_rgba(16,185,129,0.5)]" />
             Open to new opportunities
@@ -46,7 +46,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
 
           <motion.h1
             variants={item}
-            className="text-4xl font-semibold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+            className="text-4xl font-semibold leading-[1.05] tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl"
           >
             Mateusz
             <br />
@@ -55,7 +55,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
 
           <motion.div
             variants={item}
-            className="mt-4 flex min-h-[32px] justify-center text-lg font-medium text-slate-500 md:justify-start md:text-xl"
+            className="mt-4 flex min-h-[32px] justify-center text-lg font-medium text-slate-500 dark:text-slate-400 md:justify-start md:text-xl"
           >
             <TypeAnimation
               sequence={[
@@ -73,13 +73,13 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="font-semibold text-slate-700"
+              className="font-semibold text-slate-700 dark:text-slate-200"
             />
           </motion.div>
 
           <motion.p
             variants={item}
-            className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:mx-0"
+            className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:mx-0"
           >
             Computer Science student at Cracow University of Technology,
             blending hands-on software development, automated testing, and
@@ -88,7 +88,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
 
           <motion.div
             variants={item}
-            className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 md:justify-start"
+            className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400 md:justify-start"
           >
             <FaMapMarkerAlt className="text-accent" /> Cracow, Poland
           </motion.div>
@@ -108,7 +108,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
               href="/Mateusz_Janecki_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold text-slate-700 transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 transition-transform hover:scale-[1.03]"
             >
               <FaFilePdf className="text-accent" /> Download CV
             </a>
@@ -130,7 +130,7 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
                 <div className="accent-gradient-text text-2xl font-bold leading-none">
                   {s.value}
                 </div>
-                <div className="mt-1 text-xs font-medium text-slate-500">
+                <div className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">
                   {s.label}
                 </div>
               </div>
@@ -165,8 +165,8 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
               transition={{ delay: 0.8 }}
               className="absolute -bottom-5 -left-5 rounded-2xl glass px-4 py-3 text-left"
             >
-              <div className="text-xs font-medium text-slate-500">Certified</div>
-              <div className="text-sm font-semibold text-slate-900">
+              <div className="text-xs font-medium text-slate-500 dark:text-slate-400">Certified</div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                 Scrum Master (PSM I)
               </div>
             </motion.div>
