@@ -99,23 +99,15 @@ export default function About() {
             </h3>
             <div className="space-y-3">
               {[
-                { name: "Polish", level: "Native", pct: 100 },
-                { name: "English", level: "B2", pct: 75 },
+                { name: "Polish", level: "Native" },
+                { name: "English", level: "B2 — Professional proficiency" },
               ].map((l) => (
-                <div key={l.name}>
-                  <div className="mb-1 flex justify-between text-sm">
-                    <span className="font-medium text-slate-700 dark:text-slate-200">{l.name}</span>
-                    <span className="text-slate-400">{l.level}</span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-slate-200/70 dark:bg-white/10">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${l.pct}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: "easeOut" }}
-                      className="h-full rounded-full accent-gradient-bg"
-                    />
-                  </div>
+                <div
+                  key={l.name}
+                  className="flex items-center justify-between gap-3 rounded-2xl glass-soft px-4 py-3 text-sm"
+                >
+                  <span className="font-medium text-slate-700 dark:text-slate-200">{l.name}</span>
+                  <span className="text-slate-500 dark:text-slate-400">{l.level}</span>
                 </div>
               ))}
             </div>
