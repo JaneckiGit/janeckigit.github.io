@@ -39,6 +39,30 @@ const experiences: Role[] = [
     ],
   },
   {
+    title: "Brand Ambassador — iStudies",
+    company: "iSpot · Apple Premium Partner",
+    type: "Freelance",
+    period: "Sep 2025 — Present",
+    location: "Cracow, Poland",
+    bullets: [
+      "Representing iSpot's Apple education programme among students and universities; running on-campus activations",
+      "Advising peers on Apple hardware, software and education offers",
+    ],
+    stack: ["Brand Ambassador", "Community", "Communication"],
+  },
+  {
+    title: "Marketing Coordinator",
+    company: "Kościuszkon",
+    type: "Freelance",
+    period: "Dec 2024 — Jun 2025",
+    location: "Cracow, Poland",
+    bullets: [
+      "Managing social media channels and email campaigns",
+      "Creating and optimising paid Facebook and Instagram campaigns",
+    ],
+    stack: ["Meta Ads", "Email Marketing", "Social Media"],
+  },
+  {
     title: "QA — Internship R&D",
     company: "ABB",
     type: "Internship",
@@ -66,30 +90,6 @@ const experiences: Role[] = [
       "Performing manual tests and validating REST services with Postman",
     ],
     stack: ["JavaScript", "HTML", "CSS", "Cypress", "Azure DevOps", "Postman", "Git", "Scrum"],
-  },
-  {
-    title: "Brand Ambassador — iStudies",
-    company: "iSpot · Apple Premium Partner",
-    type: "Freelance",
-    period: "Sep 2025 — Present",
-    location: "Cracow, Poland",
-    bullets: [
-      "Representing iSpot's Apple education programme among students and universities; running on-campus activations",
-      "Advising peers on Apple hardware, software and education offers",
-    ],
-    stack: ["Brand Ambassador", "Community", "Communication"],
-  },
-  {
-    title: "Marketing Coordinator",
-    company: "Kościuszkon",
-    type: "Freelance",
-    period: "Dec 2024 — Jun 2025",
-    location: "Cracow, Poland",
-    bullets: [
-      "Managing social media channels and email campaigns",
-      "Creating and optimising paid Facebook and Instagram campaigns",
-    ],
-    stack: ["Meta Ads", "Email Marketing", "Social Media"],
   },
 ];
 
