@@ -76,24 +76,9 @@ export default function About() {
             Professional Scrum Master (PSM I) I&apos;m used to working in Scrum
             teams and communicating daily across QA, development and DevOps.
           </p>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {contacts.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 transition-transform hover:scale-[1.02]"
-              >
-                <span className="text-accent">{c.icon}</span>
-                <span className="truncate">{c.label}</span>
-              </a>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Languages + quick facts */}
+        {/* Contact + location */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,28 +88,20 @@ export default function About() {
         >
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Languages
+              Contact
             </h3>
-            <div className="space-y-3">
-              {[
-                { name: "Polish", level: "Native", pct: 100 },
-                { name: "English", level: "Professional working", pct: 75 },
-              ].map((l) => (
-                <div key={l.name}>
-                  <div className="mb-1 flex justify-between text-sm">
-                    <span className="font-medium text-slate-700 dark:text-slate-200">{l.name}</span>
-                    <span className="text-slate-400">{l.level}</span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-slate-200/70 dark:bg-white/10">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${l.pct}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: "easeOut" }}
-                      className="h-full rounded-full accent-gradient-bg"
-                    />
-                  </div>
-                </div>
+            <div className="grid gap-3">
+              {contacts.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-2xl glass-soft px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 transition-transform hover:scale-[1.02]"
+                >
+                  <span className="text-accent">{c.icon}</span>
+                  <span className="truncate">{c.label}</span>
+                </a>
               ))}
             </div>
           </div>

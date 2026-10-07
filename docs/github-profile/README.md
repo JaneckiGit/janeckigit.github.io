@@ -74,10 +74,10 @@
 | | Role | Where | When |
 |---|---|---|---|
 | 💻 | **Full-stack Developer — Internship** | Unit-Unicorn | Aug 2026 — present |
-| 🧪 | **QA — Internship R&D** | ABB | Oct — Nov 2022 |
-| ⚙️ | **DevOps — Internship R&D** | ABB | Apr — May 2022 |
 | 🍏 | **Brand Ambassador — iStudies** | iSpot · Apple Premium Partner | Sep 2025 — present |
 | 📣 | **Marketing Coordinator** | Kościuszkon | Dec 2024 — Jun 2025 |
+| 🧪 | **QA — Internship R&D** | ABB | Oct — Nov 2022 |
+| ⚙️ | **DevOps — Internship R&D** | ABB | Apr — May 2022 |
 
 ## 📜 Certificates
 
