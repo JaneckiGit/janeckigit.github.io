@@ -19,7 +19,7 @@ const stats = [
   { value: "PSM I", label: "Certified Scrum Master" },
   { value: "18", label: "Certificates & courses" },
   { value: "3rd", label: "Year of CS studies" },
-  { value: "2", label: "R&D internships" },
+  { value: "3", label: "Tech internships" },
 ];
 
 export default function Hero({ onContactClick }: { onContactClick: () => void }) {
@@ -59,15 +59,17 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
           >
             <TypeAnimation
               sequence={[
-                "Scrum Master",
+                "Computer Science Student",
                 2000,
-                "with a technical background",
+                "Full-stack Developer Intern",
+                2000,
+                "Python · Django · React",
                 2000,
                 "QA & Test Automation",
                 2000,
-                "DevOps & Cloud",
+                "DevOps & CI/CD",
                 2000,
-                "Project Coordinator",
+                "Certified Scrum Master",
                 2000,
               ]}
               wrapper="span"
@@ -81,9 +83,10 @@ export default function Hero({ onContactClick }: { onContactClick: () => void })
             variants={item}
             className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:mx-0"
           >
-            Computer Science student at Cracow University of Technology,
-            blending hands-on software development, automated testing, and
-            DevOps with project management and clear team communication.
+            Computer Science student at Cracow University of Technology with
+            hands-on experience across software development, QA and DevOps —
+            currently a full-stack developer intern at Unit-Unicorn, working
+            with Python / Django REST Framework, React and PostgreSQL.
           </motion.p>
 
           <motion.div

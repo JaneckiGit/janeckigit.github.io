@@ -2,7 +2,7 @@
 
 # 🌐 janeckimateusz.com — Personal Portfolio
 
-**The personal portfolio website of [Mateusz Janecki](https://www.linkedin.com/in/mateusz-j-621b1a196/)** — Computer Science student, certified Scrum Master (PSM I), QA & DevOps enthusiast.
+**The personal portfolio website of [Mateusz Janecki](https://www.linkedin.com/in/mateusz-j-621b1a196/)** — Computer Science student and full-stack developer intern with QA & DevOps experience, certified Scrum Master (PSM I).
 
 [![Deploy to GitHub Pages](https://github.com/JaneckiGit/janeckigit.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/JaneckiGit/janeckigit.github.io/actions/workflows/deploy.yml)
 [![Next.js](https://img.shields.io/badge/Next.js_15-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
@@ -24,7 +24,7 @@
 ## ✨ Features
 
 - 🎨 **Liquid-glass design** — light, modern glassmorphism theme with subtle animated gradients
-- ⌨️ **Animated hero** — typewriter effect cycling through roles (Scrum Master, QA & Test Automation, DevOps & Cloud…)
+- ⌨️ **Animated hero** — typewriter effect cycling through roles (Full-stack Developer Intern, QA & Test Automation, DevOps & CI/CD…)
 - 🧩 **Full CV in sections** — About, Experience, Education, Certificates, Projects and Contact
 - 📱 **Fully responsive** — looks great from mobile to widescreen
 - 🎬 **Scroll animations** — smooth section reveals powered by Framer Motion

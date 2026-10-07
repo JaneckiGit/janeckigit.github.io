@@ -4,9 +4,9 @@
 
 # Hi, I'm Mateusz Janecki 👋
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1500&center=true&vCenter=true&width=520&lines=Scrum+Master+(PSM+I);QA+%26+Test+Automation;DevOps+%26+Cloud;Computer+Science+Student)](https://janeckimateusz.com)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1500&center=true&vCenter=true&width=520&lines=Computer+Science+Student;Full-stack+Developer+Intern;QA+%26+Test+Automation;DevOps+%26+CI%2FCD)](https://janeckimateusz.com)
 
-**Scrum Master with a technical background** · Computer Science student at Cracow University of Technology
+**Computer Science student** at Cracow University of Technology · Full-stack developer intern at **Unit-Unicorn**
 📍 Cracow, Poland · 🟢 Open to new opportunities
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-janeckimateusz.com-4f46e5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://janeckimateusz.com)
@@ -20,12 +20,11 @@
 
 ## 🧑‍💻 About me
 
-- 🎓 **Computer Science student** at Cracow University of Technology
-- 🏅 **Professional Scrum Master™ I (PSM I)** — [verify on Credly](https://www.credly.com/badges/3d52d958-2d4a-4e41-9f34-4241112b1328)
-- 🧪 Hands-on experience in **QA & test automation** (Selenium, Appium, Cypress) and **DevOps** (Azure DevOps, CI/CD) from two R&D internships at **ABB**
-- 📣 Experience in **marketing** — paid campaigns, social media and email marketing — and as an **iSpot (Apple Premium Partner) student ambassador**
-- 🤝 I combine a technical background with project coordination: task creation & clarification, team communication and mentoring
-- 🌱 Passionate about **new technologies, AI in business and continuous self-development**
+- 🎓 **Computer Science student** at Cracow University of Technology; technician background in teleinformatics and computer networks
+- 💻 Currently a **full-stack developer intern at Unit-Unicorn** — Python / Django REST Framework, React, TypeScript and PostgreSQL
+- 🧪 Hands-on experience in **QA & test automation** (C# with Selenium & Appium, JavaScript with Cypress) and **DevOps** (Azure DevOps CI/CD, virtual machines) from two R&D internships at **ABB**
+- 🏅 **Professional Scrum Master™ I (PSM I)** — [verify on Credly](https://www.credly.com/badges/3d52d958-2d4a-4e41-9f34-4241112b1328) — used to working in Scrum teams across QA, development and DevOps
+- 🍏 **Brand Ambassador** for iSpot (Apple Premium Partner) · previously **Marketing Coordinator** at Kościuszkon
 
 ## 🛠️ Tech stack & tools
 
@@ -33,6 +32,9 @@
 
 **Languages & frameworks**
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Django REST Framework](https://img.shields.io/badge/Django_REST-092E20?style=flat-square&logo=django&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
@@ -41,6 +43,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 
 **QA & Test automation**
 
@@ -52,6 +55,7 @@
 **DevOps & Cloud**
 
 ![Azure DevOps](https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat-square&logo=azuredevops&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
@@ -60,7 +64,8 @@
 
 ![Scrum](https://img.shields.io/badge/Scrum-PSM_I_Certified-6f42c1?style=flat-square&logo=scrumalliance&logoColor=white)
 ![Kanban](https://img.shields.io/badge/Kanban-0079BF?style=flat-square&logo=trello&logoColor=white)
-![Jira](https://img.shields.io/badge/Agile_Delivery-0052CC?style=flat-square&logo=jira&logoColor=white)
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat-square&logo=jira&logoColor=white)
+![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=flat-square&logo=confluence&logoColor=white)
 
 </div>
 
@@ -68,10 +73,11 @@
 
 | | Role | Where | When |
 |---|---|---|---|
-| 🍏 | **Ambassador — iStudies** | iSpot · Apple Premium Partner | Sep 2025 — present |
-| 📣 | **Marketing Coordinator** | — | Dec 2024 — Jun 2025 |
+| 💻 | **Full-stack Developer — Internship** | Unit-Unicorn | Aug 2026 — present |
 | 🧪 | **QA — Internship R&D** | ABB | Oct — Nov 2022 |
 | ⚙️ | **DevOps — Internship R&D** | ABB | Apr — May 2022 |
+| 🍏 | **Brand Ambassador — iStudies** | iSpot · Apple Premium Partner | Sep 2025 — present |
+| 📣 | **Marketing Coordinator** | Kościuszkon | Dec 2024 — Jun 2025 |
 
 ## 📜 Certificates
 
@@ -102,7 +108,7 @@
 
 <div align="center">
 
-💬 *Let's talk about agile delivery, QA automation or your next project* — [janeckimateusz.com](https://janeckimateusz.com)
+💬 *Let's talk about full-stack development, QA automation or your next project* — [janeckimateusz.com](https://janeckimateusz.com)
 
 ![Profile views](https://komarev.com/ghpvc/?username=JaneckiGit&color=4f46e5&style=flat-square)
 
