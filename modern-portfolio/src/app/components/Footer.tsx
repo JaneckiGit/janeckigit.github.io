@@ -14,7 +14,7 @@ export default function Footer() {
         <div>
           <p className="text-base font-semibold text-slate-900 dark:text-slate-100">Mateusz Janecki</p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Scrum Master with a technical background · Cracow, Poland
+            Computer Science Student · Full-stack Developer · Cracow, Poland
           </p>
         </div>
         <SocialLinks size="xl" />

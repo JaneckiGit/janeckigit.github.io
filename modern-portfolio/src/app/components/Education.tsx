@@ -8,16 +8,16 @@ const educationData = [
   {
     icon: <FaUniversity />,
     title: "Cracow University of Technology",
-    subtitle: "Bachelor of Science — Computer Science / Information Technology",
-    date: "Oct 2024 — Present",
+    subtitle: "Bachelor of Science — Computer Science",
+    date: "Sep 2024 — Present",
     tags: ["Software Engineering", "Algorithms", "Databases"],
   },
   {
     icon: <FaGraduationCap />,
     title: "Upper Secondary School of Communications, Cracow",
-    subtitle: "Technician Diploma — Teleinformatics",
-    date: "Sep 2019 — Apr 2024",
-    tags: ["Networking", "Cybersecurity", "CorelDRAW"],
+    subtitle: "Technician — Teleinformatics",
+    date: "Sep 2019 — Sep 2024",
+    tags: ["Computer Networks", "TCP/IP", "Cybersecurity"],
   },
 ];
 

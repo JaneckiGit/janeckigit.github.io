@@ -11,24 +11,28 @@ import SectionHeading from "./SectionHeading";
 
 const skillGroups = [
   {
-    label: "Agile & Delivery",
-    items: ["Scrum", "Kanban", "PSM I", "Team Coordination", "Mentoring"],
+    label: "Languages",
+    items: ["Python", "Java 17", "C# / .NET", "TypeScript / JavaScript", "SQL"],
+  },
+  {
+    label: "Frameworks & Databases",
+    items: ["Django REST Framework", "React", "JavaFX", "PostgreSQL", "MySQL", "MongoDB", "REST APIs"],
   },
   {
     label: "QA & Test Automation",
-    items: ["C# / .NET", "Selenium", "Appium", "Cypress", "Unit & Regression Tests"],
+    items: ["Selenium", "Appium", "Cypress", "Pytest (basics)", "Unit & Regression Tests", "Manual & Exploratory Testing"],
   },
   {
-    label: "DevOps & Cloud",
-    items: ["Azure DevOps", "CI/CD Pipelines", "Virtual Machines", "Google Cloud", "Postman"],
+    label: "DevOps & Tools",
+    items: ["Git / GitHub", "Docker", "Azure DevOps (CI/CD)", "Virtual Machines", "Linux & Windows", "Power BI"],
   },
   {
-    label: "Development",
-    items: ["Java", "JavaScript", "HTML & CSS", "SQL", "Git"],
+    label: "Agile & Collaboration",
+    items: ["Scrum (PSM I)", "Agile", "Jira", "Confluence"],
   },
   {
-    label: "Marketing",
-    items: ["Meta Ads", "Social Media", "Email Campaigns", "Analytics"],
+    label: "Networking",
+    items: ["TCP/IP", "Computer Networks", "Teleinformatics"],
   },
 ];
 
@@ -58,15 +62,19 @@ export default function About() {
         >
           <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-200">
             I&apos;m a Computer Science student at Cracow University of
-            Technology with hands-on experience in software development,
-            automated software testing, and DevOps.
+            Technology with hands-on experience across software development,
+            QA and DevOps. Currently I&apos;m a full-stack developer intern at
+            Unit-Unicorn, working in Python / Django REST Framework, React and
+            PostgreSQL.
           </p>
           <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
-            I combine technical development with project management
-            responsibilities — task creation, clarification, and team
-            coordination — backed by a solid technical background and very good
-            communication within project teams. I&apos;m passionate about online
-            marketing, new technologies, and continuous self-development.
+            Previously I completed two R&amp;D internships at ABB, where I built
+            automated, regression and unit tests in C# (Selenium, Appium) and
+            JavaScript (Cypress), and maintained CI/CD pipelines and virtual
+            machines in Azure DevOps. I have a technician background in
+            teleinformatics and computer networks, and as a certified
+            Professional Scrum Master (PSM I) I&apos;m used to working in Scrum
+            teams and communicating daily across QA, development and DevOps.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -100,7 +108,7 @@ export default function About() {
             <div className="space-y-3">
               {[
                 { name: "Polish", level: "Native", pct: 100 },
-                { name: "English", level: "B2", pct: 75 },
+                { name: "English", level: "Professional working", pct: 75 },
               ].map((l) => (
                 <div key={l.name}>
                   <div className="mb-1 flex justify-between text-sm">

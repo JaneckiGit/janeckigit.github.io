@@ -7,9 +7,9 @@ const SITE_URL = "https://janeckimateusz.com";
 const GA_MEASUREMENT_ID = "G-Q88E0JEZVD";
 const GTM_ID = "GTM-TRVSDNC5";
 const NAME = "Mateusz Janecki";
-const TITLE = "Mateusz Janecki — Scrum Master & IT";
+const TITLE = "Mateusz Janecki — Computer Science Student & Full-stack Developer";
 const DESCRIPTION =
-  "Portfolio of Mateusz Janecki — Scrum Master with a technical background in software development, QA automation, and DevOps. Computer Science student in Cracow, Poland.";
+  "Portfolio of Mateusz Janecki — Computer Science student in Cracow, Poland, with hands-on experience in full-stack development (Python, Django REST Framework, React), QA automation and DevOps. Certified Scrum Master (PSM I).";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,10 +25,17 @@ export const metadata: Metadata = {
   keywords: [
     "Mateusz Janecki",
     "Janecki Mateusz",
+    "Computer Science student",
+    "full-stack developer",
+    "software developer",
+    "Python",
+    "Django REST Framework",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
     "Scrum Master",
     "PSM I",
     "portfolio",
-    "software developer",
     "QA automation",
     "test automation",
     "DevOps",
@@ -69,7 +76,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mateusz Janecki — Scrum Master with a technical background",
+        alt: "Mateusz Janecki — Computer Science Student & Full-stack Developer",
       },
     ],
   },
@@ -89,7 +96,7 @@ const jsonLd = {
   alternateName: "Janecki Mateusz",
   url: SITE_URL,
   image: `${SITE_URL}/profile.jpg`,
-  jobTitle: "Scrum Master",
+  jobTitle: "Full-stack Developer Intern",
   description: DESCRIPTION,
   email: "mailto:mateuszjanecki04@gmail.com",
   telephone: "+48537789787",
@@ -104,21 +111,33 @@ const jsonLd = {
       name: "Cracow University of Technology",
     },
   ],
-  worksFor: {
-    "@type": "Organization",
-    name: "iSpot (Apple Premium Partner)",
-  },
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Unit-Unicorn",
+    },
+    {
+      "@type": "Organization",
+      name: "iSpot (Apple Premium Partner)",
+    },
+  ],
   knowsLanguage: ["Polish", "English"],
   knowsAbout: [
-    "Scrum",
-    "Agile",
+    "Full-stack Development",
+    "Python",
+    "Django REST Framework",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
     "Software Testing",
     "QA Automation",
     "DevOps",
     "CI/CD",
-    "Cloud",
+    "Docker",
     "Java",
-    "JavaScript",
+    "C#",
+    "Scrum",
+    "Agile",
   ],
   sameAs: [
     "https://www.linkedin.com/in/mateusz-j-621b1a196/",
